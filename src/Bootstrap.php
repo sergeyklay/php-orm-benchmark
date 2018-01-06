@@ -5,7 +5,8 @@ namespace OrmBench;
 class Bootstrap
 {
     public static $ormProviders = [
-        'phalcon'
+        'phalcon',
+        'eloquent'
     ];
 
     public static function init(string $provider)

@@ -1,7 +1,9 @@
 {
     "require": {
         "php": ">=7.0.0",
-        "ext-phalcon": ">=3.2.0"
+        "ext-phalcon": ">=3.2.0",
+        "illuminate/database": "5.5.28",
+        "illuminate/events": "5.5.28"
     },
     "autoload": {
         "psr-4": {

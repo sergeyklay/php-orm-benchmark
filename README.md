@@ -10,6 +10,7 @@
 ## ORMs to Benchmark <sup>[↑](#php-orm-benchmark)</sup>
 
 1. Phalcon ORM 3.3.0
+2. Eloquent ORM 5.5.28
 
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
