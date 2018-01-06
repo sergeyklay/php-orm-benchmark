@@ -11,8 +11,6 @@
 
 1. Phalcon ORM 3.3.0
 
-## Results <sup>[↑](#php-orm-benchmark)</sup>
-
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
 First you have to build the benchmark application. Go to project root and run command as follows:
@@ -34,7 +32,7 @@ Then run the composer installer from the project root:
 php composer.phar install
 ```
 
-_Note: You may skip Phalcon by running composer install --ignore-platform-reqs, if you do not have it installed at host system._
+_Note: You may skip Phalcon by running `php composer.phar install --ignore-platform-reqs`, if you don't have it installed at host system._
 
 Than start the benchmark application:
 
@@ -55,6 +53,8 @@ To destroy the application use the following command from the host system:
 ```sh
 docker-compose down
 ```
+
+## Results <sup>[↑](#php-orm-benchmark)</sup>
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
