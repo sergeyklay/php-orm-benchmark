@@ -6,5 +6,5 @@ interface ProviderInterface
 {
     public function setUp();
 
-    public function run();
+    public function run(int $times);
 }

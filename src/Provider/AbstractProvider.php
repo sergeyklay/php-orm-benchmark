@@ -22,12 +22,14 @@ abstract class AbstractProvider implements ProviderInterface
     {
     }
 
-    final public function run()
+    final public function run(int $times)
     {
-        $this->findOne(1);
+        for ($i = 0; $i <= $times; ++$i) {
+            $this->findOne(1);
+        }
 
-        $this->timeStop = microtime(true) - $this->timeStart;
-        $this->memoryStop = memory_get_usage() - $this->memoryStart;
+        $this->timeStop = (microtime(true) - $this->timeStart) / $times;
+        $this->memoryStop = (memory_get_usage() - $this->memoryStart) / $times;
 
         $this->printMeasurements();
     }

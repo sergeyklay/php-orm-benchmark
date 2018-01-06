@@ -9,7 +9,7 @@ class Bootstrap
         'eloquent'
     ];
 
-    public static function init(string $provider)
+    public static function init(string $provider, int $times = 1)
     {
         if (empty($provider)) {
             throw new \BadMethodCallException(
@@ -26,6 +26,6 @@ class Bootstrap
 
         $provider = __NAMESPACE__ . '\\Provider\\' . ucfirst($provider);
         $provider = new $provider();
-        $provider->run();
+        $provider->run($times);
     }
 }

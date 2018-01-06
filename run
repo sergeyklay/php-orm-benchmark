@@ -11,7 +11,7 @@ define('DOCROOT', __DIR__);
 require __DIR__ . '/vendor/autoload.php';
 
 try {
-    Bootstrap::init($_SERVER['argv'][1] ?? getenv('ORM_PROVIDER'));
+    Bootstrap::init($_SERVER['argv'][1] ?? getenv('ORM_PROVIDER'), $_SERVER['argv'][2] ?? 1);
 } catch (\AssertionError $e) {
     fprintf(STDERR, "Assertion error for: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
 } catch(\BadMethodCallException $e) {

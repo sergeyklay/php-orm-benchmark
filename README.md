@@ -78,6 +78,13 @@ By sharing underlying software stacks, the benchmark results vary only according
 | Eloquent          |              180.03 |            856.87 |             1,300,604.56 | `findOrFail` |
 | Phalcon           |               16.41 |             69.88 |               494,828.57 | `findFirst`  |
 
+##### 10-fold method call: Get first record with relation
+
+| ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Eloquent          |              23.69  |             85.69 |             1,300,636.53 | `findOrFail` |
+| Phalcon           |               2.60  |              6.99 |               494,860.54 | `findFirst`  |
+
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
 The source for this extension is available on [GitHub](https://github.com/sergeyklay/php-orm-benchmark). If anyone feels that there is
