@@ -53,6 +53,7 @@ To destroy the application use the following command from the host system:
 
 ```sh
 docker-compose down
+docker volume rm phpormbenchmark_mysql
 ```
 
 ## Results <sup>[↑](#php-orm-benchmark)</sup>

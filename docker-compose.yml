@@ -30,5 +30,3 @@ services:
 volumes:
   mysql:
     driver: local
-
-# docker-compose down
