@@ -26,6 +26,8 @@ class Phalcon extends AbstractProvider
                 return new Mysql($config->database->toArray());
             }
         );
+
+        Di::setDefault($di);
     }
 
     public function findOne(int $id)

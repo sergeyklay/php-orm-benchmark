@@ -13,6 +13,6 @@ class Comments extends Model
 
     public function initialize()
     {
-        $this->belongsTo('post_id', __NAMESPACE__ . "\\Posts", 'id');
+        $this->belongsTo('post_id', Posts::class, 'id');
     }
 }

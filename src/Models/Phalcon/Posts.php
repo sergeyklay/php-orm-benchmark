@@ -13,6 +13,6 @@ class Posts extends Model
 
     public function initialize()
     {
-        $this->hasMany('id', __NAMESPACE__ . "\\Comments", 'post_id', ['alias' => 'comments']);
+        $this->hasMany('id', Comments::class, 'post_id', ['alias' => 'comments']);
     }
 }
