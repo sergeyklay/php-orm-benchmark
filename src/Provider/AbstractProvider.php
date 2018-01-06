@@ -37,18 +37,21 @@ abstract class AbstractProvider implements ProviderInterface
     private function printMeasurements()
     {
         $template =<<<TPL
-ORM:            %s
-Execution time: %f sec.
-Used memory:    %d b.
+ORM: %s
+────────────────────────────────────────
+
+Execution time: % 8.2f MSec.
+Used memory:    % 8.2f KiB.
 ────────────────────────────────────────
 
 TPL;
 
-        printf(
+        fprintf(
+            STDOUT,
             $template,
             substr(static::class, strlen(__NAMESPACE__) + 1),
-            $this->timeStop,
-            $this->memoryStop
+            number_format($this->timeStop * 1000, 2),
+            number_format($this->memoryStop / 1024, 2)
         );
     }
 }
