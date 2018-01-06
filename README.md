@@ -57,6 +57,23 @@ docker-compose down
 
 ## Results <sup>[↑](#php-orm-benchmark)</sup>
 
+These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
+
+### Benchmarking Environment
+
+* Debian GNU/Linux 8.10 (jessie)
+* PHP 7.0.26
+* Zend OPcache 7.0.26
+* MySQL 5.7
+
+##### `Sat Jan  6 21:41:47 UTC 2018`
+##### First run: Get first record with relation
+
+| ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Eloquent          |              180.03 |            856.87 |             1,300,604.56 | `findOrFail` |
+| Phalcon           |               16.41 |             69.88 |               494,828.57 | `findFirst`  |
+
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
 The source for this extension is available on [GitHub](https://github.com/sergeyklay/php-orm-benchmark). If anyone feels that there is
@@ -67,6 +84,11 @@ or send a pull request.
 
 There is an `#general` channel on the Phalcon [Discord Server](https://discord.gg/PNFsSsr).
 If you would like to discuss an idea or need help or have other feedback you can usually find me (`@klay`) idling there.
+
+## References
+
+* [Eloquent ORM](https://laravel.com/docs/5.5/eloquent)
+* [Phalcon ORM](https://docs.phalconphp.com/en/3.2/db-models)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 
