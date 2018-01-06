@@ -1,18 +1,21 @@
 #!/usr/bin/env php
 <?php
 
+use OrmBench\Bootstrap;
+
 define('APP_START_TIME', microtime(true));
 define('APP_START_MEMORY', memory_get_usage());
 
 define('DOCROOT', __DIR__);
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/src/bootstrap.php';
 
 try {
-    OrmBench\Bootstrap::init($_SERVER['argv'][1] ?? getenv('ORM_PROVIDER'));
+    Bootstrap::init($_SERVER['argv'][1] ?? getenv('ORM_PROVIDER'));
 } catch (\AssertionError $e) {
     fprintf(STDERR, "Assertion error for: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
+} catch(\BadMethodCallException $e) {
+    fprintf(STDERR, "%s\n", $e->getMessage());
 } catch (\Throwable $e) {
     fprintf(STDERR, "Error: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
 }

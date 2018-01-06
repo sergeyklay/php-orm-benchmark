@@ -13,9 +13,9 @@ class Bootstrap
         if (empty($provider)) {
             throw new \BadMethodCallException(
                 sprintf(
-                    "Incorrect benchmark run. Usage: '%s %s <provider>'. Supported providers: %s",
+                    "Incorrect benchmark run. Usage: '%s %s/run <provider>'. Supported providers: %s",
                     PHP_BINARY,
-                    realpath($_SERVER['argv'][0]),
+                    DOCROOT,
                     implode(', ', self::$ormProviders)
                 )
             );
