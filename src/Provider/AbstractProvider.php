@@ -40,8 +40,8 @@ abstract class AbstractProvider implements ProviderInterface
 ORM: %s
 ────────────────────────────────────────
 
-Execution time: % 8.2f MSec.
-Used memory:    % 8.2f KiB.
+Execution time: % 18s MSec.
+Used memory:    % 18s KiB.
 ────────────────────────────────────────
 
 TPL;

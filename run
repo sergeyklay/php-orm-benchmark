@@ -22,9 +22,9 @@ try {
 
 $template =<<<TPL
 
-Total execution time: % 8.2f MSec.
-Total memory usage:   % 8.2f KiB.
-Peak of memory:       % 8.2f KiB.
+Total execution time: % 18s MSec.
+Total memory usage:   % 18s KiB.
+Peak of memory:       % 18s KiB.
 
 
 TPL;
