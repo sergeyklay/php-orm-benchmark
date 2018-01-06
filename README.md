@@ -2,12 +2,26 @@
 
 The Docker based project to facilitate PHP ORM benchmarks.
 
+## Contents <sup>[↑](#php-orm-benchmark)</sup>
+
+* [Requirements](#requirements-)
+* [ORMs to Benchmark](#orms-to-benchmark-)
+* [Getting Started](#getting-started-)
+  * [Running Benchmark](#running-benchmark-)
+  * [Results](#results-)
+    * [Benchmarking Environment](#benchmarking-environment-)
+* [Contributing](#contributing-)
+* [Discussion](#discussion-)
+* [References](#references-)
+* [License](#license-)
+
 ## Requirements <sup>[↑](#php-orm-benchmark)</sup>
 
 * Linux or BDS System
 * Docker CE/EE >= 17.09.0
 * Docker Compose >= 1.17
 * PHP >= 7.0
+* Composer
 
 ## ORMs to Benchmark <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -23,21 +37,24 @@ git clone git@github.com:sergeyklay/php-orm-benchmark.git
 docker-compose build --force-rm --no-cache
 ```
 
-Install [Composer](https://getcomposer.org) in a common location or in project root:
+I advise you to rely on [Composer](https://getcomposer.org) to manage projects’ dependencies.
+You have to download and install Composer itself in a common location or in project root by executing in a terminal the command like this:
 
 ```sh
-curl -s http://getcomposer.org/installer | php
+$ wget http://getcomposer.org/composer.phar
+# If you haven't wget on your computer
+$ curl -s http://getcomposer.org/installer | php
 ```
 
-Then run the composer installer from the project root:
+Then, to install all project's dependencies, type the following from the project root:
 
 ```sh
 php composer.phar install
 ```
 
-_Note: You may skip Phalcon by running `php composer.phar install --ignore-platform-reqs`, if you don't have it installed at host system._
+**Note:** You may skip Phalcon by running `php composer.phar install --ignore-platform-reqs`, if you don't have it installed at host system.
 
-Than start the benchmark application:
+Finally, start the benchmark application:
 
 ```sh
 docker-compose run benchmark
@@ -63,7 +80,7 @@ docker volume rm phpormbenchmark_mysql
 These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
 By sharing underlying software stacks, the benchmark results vary only according to the host machine's hardware specs and differing code implementations.
 
-### Benchmarking Environment
+### Benchmarking Environment <sup>[↑](#php-orm-benchmark)</sup>
 
 * Debian GNU/Linux 8.10 (jessie) 64bit (Docker)
 * PHP 7.0.26
@@ -96,7 +113,7 @@ or send a pull request.
 There is an `#general` channel on the Phalcon [Discord Server](https://discord.gg/PNFsSsr).
 If you would like to discuss an idea or need help or have other feedback you can usually find me (`@klay`) idling there.
 
-## References
+## References <sup>[↑](#php-orm-benchmark)</sup>
 
 * [Eloquent ORM](https://laravel.com/docs/5.5/eloquent)
 * [Phalcon ORM](https://docs.phalconphp.com/en/3.2/db-models)
