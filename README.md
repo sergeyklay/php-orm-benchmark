@@ -1,5 +1,7 @@
 # PHP ORM Benchmark
 
+The Docker based project to facilitate PHP ORM benchmarks.
+
 ## Requirements <sup>[↑](#php-orm-benchmark)</sup>
 
 * Linux or BDS System
@@ -59,10 +61,11 @@ docker volume rm phpormbenchmark_mysql
 ## Results <sup>[↑](#php-orm-benchmark)</sup>
 
 These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
+By sharing underlying software stacks, the benchmark results vary only according to the host machine's hardware specs and differing code implementations.
 
 ### Benchmarking Environment
 
-* Debian GNU/Linux 8.10 (jessie)
+* Debian GNU/Linux 8.10 (jessie) 64bit (Docker)
 * PHP 7.0.26
 * Zend OPcache 7.0.26
 * MySQL 5.7
