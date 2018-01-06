@@ -18,10 +18,25 @@
 First you have to build the benchmark application. Go to project root and run command as follows:
 
 ```sh
+git clone git@github.com:sergeyklay/php-orm-benchmark.git
 docker-compose build --force-rm --no-cache
 ```
 
-Than run the benchmark application:
+Install [Composer](https://getcomposer.org) in a common location or in project root:
+
+```sh
+curl -s http://getcomposer.org/installer | php
+```
+
+Then run the composer installer from the project root:
+
+```sh
+php composer.phar install
+```
+
+_Note: You may skip Phalcon by running composer install --ignore-platform-reqs, if you do not have it installed at host system._
+
+Than start the benchmark application:
 
 ```sh
 docker-compose run benchmark
@@ -32,10 +47,10 @@ docker-compose run benchmark
 To run benchmark simple run command as follows:
 
 ```sh
-/usr/local/bin/php /app/run <provider>
+php run <provider>
 ```
 
-To destro application use:
+To destroy the application use the following command from the host system:
 
 ```sh
 docker-compose down
