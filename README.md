@@ -73,7 +73,7 @@ docker-compose run benchmark
 To run benchmark simple run command as follows:
 
 ```sh
-php run <provider> <test> <times>
+php run <provider> <test>
 ```
 
 Available providers are:
@@ -91,7 +91,7 @@ Available tests are:
 To run benchmark multiple times use:
 
 ```sh
-php run <provider> <times>
+php run <provider> <test> <times>
 ```
 
 To destroy the application use the following command from the host system:
