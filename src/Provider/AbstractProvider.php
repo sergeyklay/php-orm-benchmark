@@ -12,6 +12,13 @@ abstract class AbstractProvider implements ProviderInterface
 
     private $measurements = [];
 
+    protected $removePKs = [];
+
+    public $availableTests = [
+        'create',
+        'read',
+    ];
+
     final public function __construct()
     {
         $this->timeStart   = microtime(true);
@@ -29,21 +36,43 @@ abstract class AbstractProvider implements ProviderInterface
     {
     }
 
-    final public function run(int $times)
+    final public function run(string $method, int $times)
     {
-        for ($i = 0; $i < $times; ++$i) {
-            $this->read(1);
+        switch ($method) {
+            case 'read':
+                for ($i = 0; $i < $times; ++$i) {
+                    $this->read(1);
+                }
+
+                $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
+                $this->memoryStop = (memory_get_usage() - $this->memoryStart) / $times;
+                break;
+            case 'create':
+                for ($i = 0; $i < $times; ++$i) {
+                    $this->create();
+                }
+
+                $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
+                $this->memoryStop = (memory_get_usage() - $this->memoryStart) / $times;
+                break;
+            default:
+                throw new \BadMethodCallException(
+                    sprintf(
+                        'Incorrect benchmark run. Usage: "%s %s/run %s <test> <times>". Supported tests: %s',
+                        PHP_BINARY,
+                        DOCROOT,
+                        strtolower($this->getClass()),
+                        implode(', ', $this->availableTests)
+                    )
+                );
         }
 
-        $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
-        $this->memoryStop = (memory_get_usage() - $this->memoryStart) / $times;
-
         $this->measurements[] = [
-            'method'     => 'findOne',
+            'method'     => $method,
             'times'      => $times,
             'timeStop'   => $this->timeStop,
             'memoryStop' => $this->memoryStop,
-            'memoryPeak' => memory_get_peak_usage(true),
+            'memoryPeak' => memory_get_peak_usage(),
         ];
 
         $this->printMeasurements();

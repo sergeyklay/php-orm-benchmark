@@ -11,12 +11,12 @@ class Bootstrap
         'cake'
     ];
 
-    public static function init(string $provider, int $times = 1)
+    public static function init(string $provider = '', string $method = '', int $times = 1)
     {
         if (empty($provider)) {
             throw new \BadMethodCallException(
                 sprintf(
-                    'Incorrect benchmark run. Usage: "%s %s/run <provider>". Supported providers: %s',
+                    'Incorrect benchmark run. Usage: "%s %s/run <provider> <test> <times>". Supported providers: %s',
                     PHP_BINARY,
                     DOCROOT,
                     implode(', ', self::$ormProviders)
@@ -31,6 +31,6 @@ class Bootstrap
 
         fprintf(STDOUT, "Start %s benchmarking...\n\n", $provider->getClass());
 
-        $provider->run($times);
+        $provider->run($method, $times);
     }
 }

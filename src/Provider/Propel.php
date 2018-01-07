@@ -25,6 +25,22 @@ class Propel extends AbstractProvider
         $serviceContainer->setDefaultDatasource('default');
     }
 
+    public function create()
+    {
+        $post = new Posts();
+
+        $post->setTitle('Yet another article: ' . __CLASS__);
+        $post->setBody('This is the body of the article.');
+        $post->setCreatedAt(time());
+        $post->setUpdatedAt(time());
+
+        assert($post->save() === 1);
+        assert(is_numeric($post->getId()));
+        assert($post->getId() > 0);
+
+        $this->removePKs[] = $post->getId();
+    }
+
     public function read(int $id)
     {
         $post = PostsQuery::create()->findPk($id);

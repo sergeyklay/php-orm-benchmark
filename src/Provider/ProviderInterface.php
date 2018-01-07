@@ -6,7 +6,8 @@ interface ProviderInterface
 {
     public function setUp();
 
-    public function run(int $times);
+    public function run(string $method, int $times);
 
+    public function create();
     public function read(int $id);
 }

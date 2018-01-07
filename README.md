@@ -11,9 +11,11 @@ The Docker based project to facilitate PHP ORM benchmarks.
   * [Results](#results-)
     * [Benchmarking Environment](#benchmarking-environment-)
     * [First run](#first-run-get-)
-      * [Get first record with relation 1](#get-first-record-with-relation-1-)
+      * [Insert a a record to the Database](#insert-a-record-to-the-database-1)
+      * [Get first record with relation](#get-first-record-with-relation-1)
     * [10-fold method call](#10-fold-method-)
-      * [Get first record with relation 2](#get-first-record-with-relation-2-)
+      * [Insert a a record to the Database](#insert-a-record-to-the-database-10)
+      * [Get first record with relation](#get-first-record-with-relation-10)
 * [Contributing](#contributing-)
 * [Discussion](#discussion-)
 * [References](#references-)
@@ -71,7 +73,7 @@ docker-compose run benchmark
 To run benchmark simple run command as follows:
 
 ```sh
-php run <provider>
+php run <provider> <test> <times>
 ```
 
 Available providers are:
@@ -80,6 +82,11 @@ Available providers are:
 * `propel`
 * `eloquent`
 * `cake`
+
+Available tests are:
+
+* `create`
+* `read`
 
 To run benchmark multiple times use:
 
@@ -108,9 +115,18 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 ### First run <sup>[↑](#php-orm-benchmark)</sup>
 
-#### Get first record with relation 1 <sup>[↑](#php-orm-benchmark)</sup>
+#### Insert a a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               | Execution time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| CakePHP           |              249.55 |            911.23 |             1,361,684.54 | `save`       |
+| Eloquent          |              166.90 |            744.06 |             1,190,524.53 | `save`       |
+| Propel            |              124.78 |            355.55 |               792,676.54 | `save`       |
+| Phalcon           |               13.25 |             36.67 |               467,436.54 | `save`       |
+
+#### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
 | Eloquent          |              184.39 |            856.87 |             1,305,964.56 | `findOrFail` |
@@ -119,9 +135,18 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 ### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
 
-#### Get first record with relation 2 <sup>[↑](#php-orm-benchmark)</sup>
+#### Insert a a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               | Execution time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| CakePHP           |               24.56 |             91.15 |             1,361,716.51 | `save`       |
+| Eloquent          |               17.99 |             74.44 |             1,190,556.50 | `save`       |
+| Propel            |               12.40 |             35.84 |               795,332.51 | `save`       |
+| Phalcon           |                3.06 |              3.73 |               468,076.51 | `save`       |
+
+#### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
 | Eloquent          |              22.86  |             85.69 |             1,305,996.53 | `findOrFail` |

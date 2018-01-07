@@ -16,6 +16,26 @@ class Cake extends AbstractProvider
         ConnectionManager::setConfig('default', require_once DOCROOT . '/config/cake.php');
     }
 
+    public function create()
+    {
+        $postsTable = TableRegistry::get('Posts', [
+            'className' => PostsTable::class,
+        ]);
+
+        $post = $postsTable->newEntity();
+
+        $post->title = 'Yet another article: ' . __CLASS__;
+        $post->body  = 'This is the body of the article.';
+        $post->created_at  = time();
+        $post->updated_at  = time();
+
+        assert($postsTable->save($post) instanceof Posts);
+        assert(is_numeric($post->id));
+        assert($post->id > 0);
+
+        $this->removePKs[] = $post->id;
+    }
+
     public function read(int $id)
     {
         $posts = TableRegistry::get('Posts', [
