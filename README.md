@@ -73,6 +73,12 @@ To run benchmark simple run command as follows:
 php run <provider>
 ```
 
+Available providers are:
+
+* `phalcon`
+* `propel`
+* `eloquent`
+
 To destroy the application use the following command from the host system:
 
 ```sh
