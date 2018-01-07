@@ -120,6 +120,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 
 * [Eloquent ORM](https://laravel.com/docs/5.5/eloquent)
 * [Phalcon ORM](https://docs.phalconphp.com/en/3.2/db-models)
+* [Propel ORM](http://propelorm.org/documentation/)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 
