@@ -24,7 +24,7 @@ abstract class AbstractProvider implements ProviderInterface
 
     final public function run(int $times)
     {
-        for ($i = 0; $i <= $times; ++$i) {
+        for ($i = 0; $i < $times; ++$i) {
             $this->findOne(1);
         }
 
