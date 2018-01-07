@@ -4,7 +4,8 @@
     "ext-phalcon": ">=3.2.0",
     "illuminate/database": "5.5.28",
     "illuminate/events": "5.5.28",
-    "propel/propel": "2.0.0-alpha7"
+    "propel/propel": "2.0.0-alpha7",
+    "cakephp/orm": "^3.5"
   },
   "autoload": {
     "psr-4": {

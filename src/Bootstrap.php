@@ -7,7 +7,8 @@ class Bootstrap
     public static $ormProviders = [
         'phalcon',
         'eloquent',
-        'propel'
+        'propel',
+        'cake'
     ];
 
     public static function init(string $provider, int $times = 1)

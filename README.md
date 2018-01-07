@@ -30,8 +30,9 @@ The Docker based project to facilitate PHP ORM benchmarks.
 ## ORMs to Benchmark <sup>[↑](#php-orm-benchmark)</sup>
 
 1. Phalcon 3.3.0
-2. Propel 2.0.0-alpha7
+2. Propel ORM 2.0.0-alpha7
 3. Eloquent 5.5.28
+4. CakePHP ORM 3.5.10
 
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -78,8 +79,9 @@ Available providers are:
 * `phalcon`
 * `propel`
 * `eloquent`
+* `cake`
 
-To run benchmark miltiple times use:
+To run benchmark multiple times use:
 
 ```sh
 php run <provider> <times>
@@ -110,6 +112,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
 | Eloquent          |              180.03 |            856.87 |             1,300,604.56 | `findOrFail` |
 | Propel            |              155.44 |            727.15 |             1,167,780.57 | `findPk`     |
 | Phalcon           |               16.41 |             69.88 |               494,828.57 | `findFirst`  |
@@ -120,6 +123,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
 | Eloquent          |              23.69  |             85.69 |             1,300,636.53 | `findOrFail` |
 | Propel            |              15.67  |             72.71 |             1,167,764.54 | `findPk`     |
 | Phalcon           |               2.60  |              6.99 |               494,860.54 | `findFirst`  |
@@ -140,6 +144,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 * [Eloquent ORM](https://laravel.com/docs/5.5/eloquent)
 * [Phalcon ORM](https://docs.phalconphp.com/en/3.2/db-models)
 * [Propel ORM](http://propelorm.org/documentation/)
+* [CakePHP ORM](https://book.cakephp.org/3.0/en/orm.html)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 
