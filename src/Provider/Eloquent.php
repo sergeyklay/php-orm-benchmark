@@ -13,7 +13,7 @@ class Eloquent extends AbstractProvider
     {
         $capsule = new Capsule();
 
-        $capsule->addConnection(require DOCROOT . '/config/eloquent.php');
+        $capsule->addConnection(require_once DOCROOT . '/config/eloquent.php');
 
         $capsule->setEventDispatcher(new Dispatcher(new Container()));
         $capsule->setAsGlobal();

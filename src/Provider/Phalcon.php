@@ -18,7 +18,7 @@ class Phalcon extends AbstractProvider
         $di->setShared('modelsManager', Manager::class);
         $di->setShared('modelsMetadata', Memory::class);
 
-        $config = new Config(require DOCROOT . '/config/phalcon.php');
+        $config = new Config(require_once DOCROOT . '/config/phalcon.php');
         
         $di->setShared(
             'db',
