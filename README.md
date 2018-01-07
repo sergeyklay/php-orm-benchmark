@@ -113,9 +113,9 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
-| Eloquent          |              180.03 |            856.87 |             1,300,604.56 | `findOrFail` |
-| Propel            |              155.44 |            727.15 |             1,167,780.57 | `findPk`     |
-| Phalcon           |               16.41 |             69.88 |               494,828.57 | `findFirst`  |
+| Eloquent          |              184.39 |            856.87 |             1,305,964.56 | `findOrFail` |
+| Propel            |              162.37 |            727.10 |             1,173,076.57 | `findPk`     |
+| Phalcon           |               23.40 |             71.13 |               501,468.57 | `findFirst`  |
 
 ### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -124,9 +124,9 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
-| Eloquent          |              23.69  |             85.69 |             1,300,636.53 | `findOrFail` |
-| Propel            |              15.67  |             72.71 |             1,167,764.54 | `findPk`     |
-| Phalcon           |               2.60  |              6.99 |               494,860.54 | `findFirst`  |
+| Eloquent          |              22.86  |             85.69 |             1,305,996.53 | `findOrFail` |
+| Propel            |              18.76  |             72.71 |             1,173,108.54 | `findPk`     |
+| Phalcon           |               2.47  |              7.11 |               501,500.54 | `findFirst`  |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
