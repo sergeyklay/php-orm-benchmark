@@ -24,10 +24,13 @@ class Bootstrap
             );
         }
 
-        fprintf(STDOUT, "Start benchmarking ...\n\n");
+
 
         $provider = __NAMESPACE__ . '\\Provider\\' . ucfirst($provider);
         $provider = new $provider();
+
+        fprintf(STDOUT, "Start %s benchmarking...\n\n", $provider->getClass());
+
         $provider->run($times);
     }
 }

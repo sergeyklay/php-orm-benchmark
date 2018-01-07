@@ -110,7 +110,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 #### Get first record with relation 1 <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+| ORM               | Execution time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
 | Eloquent          |              184.39 |            856.87 |             1,305,964.56 | `findOrFail` |
@@ -121,7 +121,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 #### Get first record with relation 2 <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+| ORM               | Execution time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
 | Eloquent          |              22.86  |             85.69 |             1,305,996.53 | `findOrFail` |
