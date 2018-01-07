@@ -32,7 +32,7 @@ abstract class AbstractProvider implements ProviderInterface
     final public function run(int $times)
     {
         for ($i = 0; $i < $times; ++$i) {
-            $this->findOne(1);
+            $this->read(1);
         }
 
         $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
@@ -48,8 +48,6 @@ abstract class AbstractProvider implements ProviderInterface
 
         $this->printMeasurements();
     }
-
-    abstract function findOne(int $id);
 
     private function printMeasurements()
     {

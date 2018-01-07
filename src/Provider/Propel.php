@@ -25,7 +25,7 @@ class Propel extends AbstractProvider
         $serviceContainer->setDefaultDatasource('default');
     }
 
-    public function findOne(int $id)
+    public function read(int $id)
     {
         $post = PostsQuery::create()->findPk($id);
         assert($post instanceof Posts);

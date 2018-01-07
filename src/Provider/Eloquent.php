@@ -20,7 +20,7 @@ class Eloquent extends AbstractProvider
         $capsule->bootEloquent();
     }
 
-    public function findOne(int $id)
+    public function read(int $id)
     {
         $post = Posts::findOrFail($id);
         assert($post instanceof Posts);

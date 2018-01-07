@@ -16,7 +16,7 @@ class Cake extends AbstractProvider
         ConnectionManager::setConfig('default', require_once DOCROOT . '/config/cake.php');
     }
 
-    public function findOne(int $id)
+    public function read(int $id)
     {
         $posts = TableRegistry::get('Posts', [
             'className' => PostsTable::class,

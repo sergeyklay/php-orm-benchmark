@@ -30,7 +30,7 @@ class Phalcon extends AbstractProvider
         Di::setDefault($di);
     }
 
-    public function findOne(int $id)
+    public function read(int $id)
     {
         $post = Posts::findFirst($id);
         assert($post instanceof Posts);
