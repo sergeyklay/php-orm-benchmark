@@ -11,11 +11,11 @@ The Docker based project to facilitate PHP ORM benchmarks.
   * [Results](#results-)
     * [Benchmarking Environment](#benchmarking-environment-)
     * [First run](#first-run-get-)
-      * [Insert a a record to the Database](#insert-a-record-to-the-database-1)
-      * [Get first record with relation](#get-first-record-with-relation-1)
+      * [Insert a record to the Database](#insert-a-record-to-the-database-)
+      * [Get first record with relation](#get-first-record-with-relation-)
     * [10-fold method call](#10-fold-method-)
-      * [Insert a a record to the Database](#insert-a-record-to-the-database-10)
-      * [Get first record with relation](#get-first-record-with-relation-10)
+      * [Insert a record to the Database](#insert-a-record-to-the-database--1)
+      * [Get first record with relation](#get-first-record-with-relation--1)
 * [Contributing](#contributing-)
 * [Discussion](#discussion-)
 * [References](#references-)
@@ -115,7 +115,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 ### First run <sup>[↑](#php-orm-benchmark)</sup>
 
-#### Insert a a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
+#### Insert a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
@@ -135,7 +135,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 ### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
 
-#### Insert a a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
+#### Insert a record to the Database <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
