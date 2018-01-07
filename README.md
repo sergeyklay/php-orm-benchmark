@@ -10,6 +10,10 @@ The Docker based project to facilitate PHP ORM benchmarks.
   * [Running Benchmark](#running-benchmark-)
   * [Results](#results-)
     * [Benchmarking Environment](#benchmarking-environment-)
+    * [First run](#first-run-get-)
+      * [Get first record with relation 1](#get-first-record-with-relation-1-)
+    * [10-fold method call](#10-fold-method-)
+      * [Get first record with relation 2](#get-first-record-with-relation-2-)
 * [Contributing](#contributing-)
 * [Discussion](#discussion-)
 * [References](#references-)
@@ -88,8 +92,9 @@ By sharing underlying software stacks, the benchmark results vary only according
 * Zend OPcache 7.0.26
 * MySQL 5.7
 
-##### `Sat Jan  6 21:41:47 UTC 2018`
-##### First run: Get first record with relation
+### First run <sup>[↑](#php-orm-benchmark)</sup>
+
+#### Get first record with relation 1 <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
@@ -97,7 +102,9 @@ By sharing underlying software stacks, the benchmark results vary only according
 | Propel            |              155.44 |            727.15 |             1,167,780.57 | `findPk`     |
 | Phalcon           |               16.41 |             69.88 |               494,828.57 | `findFirst`  |
 
-##### 10-fold method call: Get first record with relation
+### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
+
+#### Get first record with relation 2 <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               | Execution time (MS) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
