@@ -79,6 +79,12 @@ Available providers are:
 * `propel`
 * `eloquent`
 
+To run benchmark miltiple times use:
+
+```sh
+php run <provider> <times>
+```
+
 To destroy the application use the following command from the host system:
 
 ```sh
