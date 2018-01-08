@@ -27,9 +27,9 @@ abstract class AbstractProvider implements ProviderInterface
     // TODO: for tests to delete rows
     protected $removePKs = [];
 
-    final public function __construct(int $caching = 0)
+    final public function __construct(bool $caching = false)
     {
-        $this->useMetadataCaching = (bool) $caching;
+        $this->useMetadataCaching = $caching;
 
         $this->timeStart   = microtime(true);
         $this->memoryStart = memory_get_usage();

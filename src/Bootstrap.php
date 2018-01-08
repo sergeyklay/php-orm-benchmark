@@ -6,7 +6,7 @@ use OrmBench\Provider\ProviderFactory;
 
 class Bootstrap
 {
-    public static function init(string $provider = '', string $method = '', int $times = 1, int $caching = 0)
+    public static function init(string $provider = '', string $method = '', int $times = 1, bool $caching = false)
     {
         if (empty($provider)) {
             throw new \BadMethodCallException(

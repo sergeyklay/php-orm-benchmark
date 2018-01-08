@@ -11,10 +11,10 @@ define('DOCROOT', __DIR__);
 require __DIR__ . '/vendor/autoload.php';
 
 $defaults = [
-    null,   // ORM Provider
+    '',     // ORM Provider
     'read', // Test
     1,      // Times
-    0,      // Metadata Caching
+    false,  // Metadata Caching
 ];
 
 $arguments = $_SERVER['argv'] ?? [];
@@ -23,7 +23,7 @@ array_shift($arguments);
 $arguments = $arguments + $defaults;
 
 try {
-    Bootstrap::init($arguments[0], $arguments[1], $arguments[2], $arguments[3]);
+    Bootstrap::init($arguments[0], $arguments[1], $arguments[2], (bool) $arguments[3]);
 } catch (\AssertionError $e) {
     fprintf(STDERR, "Assertion error for: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
 } catch(\BadMethodCallException $e) {

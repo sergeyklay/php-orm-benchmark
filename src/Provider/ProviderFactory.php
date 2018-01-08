@@ -14,7 +14,7 @@ class ProviderFactory
         'activerecord',
     ];
 
-    public static function create(string $name, int $caching = 0): AbstractProvider
+    public static function create(string $name, bool $caching = false): AbstractProvider
     {
         $provider = 'OrmBench\\Provider\\' . ucfirst($name);
 
