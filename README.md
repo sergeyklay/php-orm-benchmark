@@ -189,7 +189,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 * [Propel ORM](http://propelorm.org/documentation/)
 * [CakePHP ORM](https://book.cakephp.org/3.0/en/orm.html)
 * [Yii 2 ActiveRecord](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html)
-* [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)s
+* [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 * [PHP ActiveRecord](http://www.phpactiverecord.org/projects/main/wiki)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
