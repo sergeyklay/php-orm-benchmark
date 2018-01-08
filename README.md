@@ -132,7 +132,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
-| Eloquent          |              184.39 |            856.87 |             1,305,964.56 | `findOrFail` |
+| Eloquent          |              170.82 |            856.87 |             1,306,540.53 | `firstOrFail`|
 | Propel            |              162.37 |            727.10 |             1,173,076.57 | `findPk`     |
 | Yii               |              115.91 |            644.05 |             1,088,596.54 | `findOne`    |
 | Phalcon           |               23.40 |             71.13 |               501,468.57 | `findFirst`  |
@@ -154,7 +154,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
 | CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
-| Eloquent          |              22.86  |             85.69 |             1,305,996.53 | `findOrFail` |
+| Eloquent          |              20.78  |             85.69 |             1,306,572.50 | `firstOrFail`|
 | Propel            |              18.76  |             72.71 |             1,173,108.54 | `findPk`     |
 | Yii               |               13.12 |             67.20 |             1,117,284.51 | `findOne`    |
 | Phalcon           |               2.47  |              7.11 |               501,500.54 | `findFirst`  |
