@@ -51,7 +51,7 @@ class Phalcon extends AbstractProvider
         $post = Posts::findFirst($id);
         assert($post instanceof Posts);
 
-        $comment = $post->getComments(['order' => 'created_at DESC']);
-        assert($comment[0]->body === 'It is a comment.');
+        $comments = $post->getComments(['order' => 'created_at DESC']);
+        assert($comments[0]->body === 'It is a comment.');
     }
 }

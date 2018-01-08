@@ -41,7 +41,7 @@ class Eloquent extends AbstractProvider
         $post = Posts::where('id', $id)->firstOrFail();
         assert($post instanceof Posts);
 
-        $comment = $post->comments;
-        assert($comment[0]->body === 'It is a comment.');
+        $comments = $post->comments;
+        assert($comments[0]->body === 'It is a comment.');
     }
 }
