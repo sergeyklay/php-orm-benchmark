@@ -153,11 +153,11 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
-| Eloquent          |              20.78  |             85.69 |             1,306,572.50 | `firstOrFail`|
-| Propel            |              18.76  |             72.71 |             1,173,108.54 | `findPk`     |
+| CakePHP           |               28.24 |            104.34 |             1,497,004.54 | `find`       |
+| Eloquent          |               20.78 |             85.69 |             1,306,572.50 | `firstOrFail`|
+| Propel            |               18.76 |             72.71 |             1,173,108.54 | `findPk`     |
 | Yii               |               13.12 |             67.20 |             1,117,284.51 | `findOne`    |
-| Phalcon           |               2.47  |              7.11 |               501,500.54 | `findFirst`  |
+| Phalcon           |                2.47 |              7.11 |               501,500.54 | `findFirst`  |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
