@@ -11,6 +11,7 @@ class Bootstrap
         'cake',
         'yii',
         'doctrine',
+        'activerecord',
     ];
 
     public static function init(string $provider = '', string $method = '', int $times = 1)

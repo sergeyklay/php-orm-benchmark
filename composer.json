@@ -7,7 +7,8 @@
     "propel/propel": "2.0.0-alpha7",
     "cakephp/orm": "3.5.10",
     "yiisoft/yii2": "2.0.13.1",
-    "doctrine/orm": "2.5.14"
+    "doctrine/orm": "2.5.14",
+    "php-activerecord/php-activerecord": "1.2.0"
   },
   "provide": {
     "bower-asset/jquery": "*",
