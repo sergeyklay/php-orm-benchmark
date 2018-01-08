@@ -5,6 +5,7 @@ namespace OrmBench\Provider;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use OrmBench\Models\Doctrine\Posts;
+use Doctrine\Common\Cache\ArrayCache;
 
 class Doctrine extends AbstractProvider
 {
@@ -12,8 +13,14 @@ class Doctrine extends AbstractProvider
 
     public function setUp()
     {
-        $proxyDir = sys_get_temp_dir() . '/Proxies';
-        $cache = new \Doctrine\Common\Cache\ArrayCache();
+        $proxyDir = null;
+        $cache = null;
+
+        if ($this->isUseMetadataCaching()) {
+            $proxyDir = DOCROOT . '/storage/doctrine/proxies';
+            $cache = new ArrayCache();
+        }
+
         $config = Setup::createAnnotationMetadataConfiguration(
             [DOCROOT . '/src/Models/Doctrine'],
             false,
@@ -23,8 +30,10 @@ class Doctrine extends AbstractProvider
 
         $this->em = EntityManager::create(require_once DOCROOT . '/config/doctrine.php', $config);
 
-        $metadatas = $this->em->getMetadataFactory()->getAllMetadata();
-        $this->em->getProxyFactory()->generateProxyClasses($metadatas, $proxyDir);
+        if ($this->isUseMetadataCaching()) {
+            $metadatas = $this->em->getMetadataFactory()->getAllMetadata();
+            $this->em->getProxyFactory()->generateProxyClasses($metadatas, $proxyDir);
+        }
     }
 
     public function create()

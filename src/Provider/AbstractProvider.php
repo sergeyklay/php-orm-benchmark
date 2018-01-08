@@ -30,18 +30,7 @@ abstract class AbstractProvider implements ProviderInterface
     final public function __construct(bool $caching = false)
     {
         $this->useMetadataCaching = $caching;
-
-        if (!$caching) {
-            $this->timeStart   = microtime(true);
-            $this->memoryStart = memory_get_usage();
-        }
-
         $this->setUp();
-
-        if ($caching) {
-            $this->timeStart   = microtime(true);
-            $this->memoryStart = memory_get_usage();
-        }
     }
 
     final public function getClass(): string
@@ -56,6 +45,9 @@ abstract class AbstractProvider implements ProviderInterface
 
     final public function run(string $method, int $times)
     {
+        $this->timeStart   = microtime(true);
+        $this->memoryStart = memory_get_usage();
+
         switch ($method) {
             case 'read':
                 if ($times > 1000) {
