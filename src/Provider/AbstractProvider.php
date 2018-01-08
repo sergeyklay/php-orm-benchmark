@@ -51,8 +51,15 @@ abstract class AbstractProvider implements ProviderInterface
     {
         switch ($method) {
             case 'read':
+                if ($times > 1000) {
+                    throw new \BadMethodCallException(
+                        "This test does not designed to loop over items greater than 1000 times. " .
+                        "To achieve that please first amend the SQL dump. Then you have to update this check."
+                    );
+                }
+
                 for ($i = 0; $i < $times; ++$i) {
-                    $this->read(1);
+                    $this->read($i + 1);
                 }
 
                 $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
