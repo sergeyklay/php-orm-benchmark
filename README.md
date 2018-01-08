@@ -36,6 +36,7 @@ The Docker based project to facilitate PHP ORM benchmarks.
 3. Eloquent 5.5.28
 4. CakePHP ORM 3.5.10
 5. Yii ActiveRecord 2.0.13.1
+6. Doctrine ORM 2.5.14
 
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -84,6 +85,7 @@ Available providers are:
 * `eloquent`
 * `cake`
 * `yii`
+* `doctrine`
 
 Available tests are:
 
@@ -121,6 +123,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |              431.45 |          1,282.83 |             1,742,364.53 | `flush`      |
 | CakePHP           |              249.55 |            911.23 |             1,361,684.54 | `save`       |
 | Eloquent          |              166.90 |            744.06 |             1,190,524.53 | `save`       |
 | Propel            |              124.78 |            355.55 |               792,676.54 | `save`       |
@@ -131,6 +134,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |              469.80 |          1,382.61 |             1,844,916.53 | `findOneBy`  |
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
 | Eloquent          |              170.82 |            856.87 |             1,306,540.53 | `firstOrFail`|
 | Propel            |              162.37 |            727.10 |             1,173,076.57 | `findPk`     |
@@ -143,6 +147,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |               44.34 |            130.13 |             1,761,028.50 | `flush`      |
 | CakePHP           |               24.56 |             91.15 |             1,361,716.51 | `save`       |
 | Eloquent          |               17.99 |             74.44 |             1,190,556.50 | `save`       |
 | Propel            |               12.40 |             35.84 |               795,332.51 | `save`       |
@@ -153,6 +158,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |               43.07 |            138.26 |             1,844,948.50 | `findOneBy`  |
 | CakePHP           |               28.24 |            104.34 |             1,497,004.54 | `find`       |
 | Eloquent          |               20.78 |             85.69 |             1,306,572.50 | `firstOrFail`|
 | Propel            |               18.76 |             72.71 |             1,173,108.54 | `findPk`     |
@@ -177,6 +183,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 * [Propel ORM](http://propelorm.org/documentation/)
 * [CakePHP ORM](https://book.cakephp.org/3.0/en/orm.html)
 * [Yii 2 ActiveRecord](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html)
+* [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 

@@ -5,14 +5,20 @@
     "illuminate/database": "5.5.28",
     "illuminate/events": "5.5.28",
     "propel/propel": "2.0.0-alpha7",
-    "cakephp/orm": "^3.5",
-    "yiisoft/yii2": "2.0.13.1"
+    "cakephp/orm": "3.5.10",
+    "yiisoft/yii2": "2.0.13.1",
+    "doctrine/orm": "2.5.14"
   },
   "provide": {
     "bower-asset/jquery": "*",
     "bower-asset/yii2-pjax": "*",
     "bower-asset/punycode": "*",
     "bower-asset/inputmask": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.26"
+    }
   },
   "autoload": {
     "psr-4": {

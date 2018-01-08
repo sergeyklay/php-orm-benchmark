@@ -10,6 +10,7 @@ class Bootstrap
         'propel',
         'cake',
         'yii',
+        'doctrine',
     ];
 
     public static function init(string $provider = '', string $method = '', int $times = 1)
