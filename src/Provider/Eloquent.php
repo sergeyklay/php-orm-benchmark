@@ -38,7 +38,7 @@ class Eloquent extends AbstractProvider
 
     public function read(int $id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Posts::firstOrFail($id);
         assert($post instanceof Posts);
 
         $comment = $post->comments;
