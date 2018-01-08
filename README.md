@@ -49,6 +49,7 @@ First you have to build the benchmark application. Go to project root and run co
 
 ```sh
 git clone git@github.com:sergeyklay/php-orm-benchmark.git
+cd php-orm-benchmark
 docker-compose build --force-rm --no-cache
 ```
 
