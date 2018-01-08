@@ -31,13 +31,13 @@ The Docker based project to facilitate PHP ORM benchmarks.
 
 ## ORMs to Benchmark <sup>[↑](#php-orm-benchmark)</sup>
 
-1. Phalcon 3.3.0
-2. Propel ORM 2.0.0-alpha7
-3. Eloquent 5.5.28
-4. CakePHP ORM 3.5.10
-5. Yii ActiveRecord 2.0.13.1
-6. Doctrine ORM 2.5.14
-7. PHP ActiveRecord 1.2.0
+* Phalcon 3.3.0
+* Propel ORM 2.0.0-alpha7
+* Eloquent 5.5.28
+* CakePHP ORM 3.5.10
+* Yii ActiveRecord 2.0.13.1
+* Doctrine ORM 2.5.14
+* PHP ActiveRecord 1.2.0
 
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
