@@ -23,7 +23,7 @@ array_shift($arguments);
 $arguments = $arguments + $defaults;
 
 try {
-    Bootstrap::init($arguments[0], $arguments[1], $arguments[2]);
+    Bootstrap::init($arguments[0], $arguments[1], $arguments[2], $arguments[3]);
 } catch (\AssertionError $e) {
     fprintf(STDERR, "Assertion error for: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
 } catch(\BadMethodCallException $e) {
