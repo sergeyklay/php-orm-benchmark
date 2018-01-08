@@ -138,25 +138,25 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| Doctrine          |              431.45 |          1,282.83 |             1,742,364.53 | `flush`      |
-| CakePHP           |              249.55 |            911.23 |             1,361,684.54 | `save`       |
-| Eloquent          |              166.90 |            744.06 |             1,190,524.53 | `save`       |
-| Propel            |              124.78 |            355.55 |               792,676.54 | `save`       |
-| Yii               |              109.67 |            479.07 |               919,284.54 | `save`       |
-| PHP ActiveRecord  |               34.98 |            119.34 |               803,940.50 | `save`       |
-| Phalcon           |               13.25 |             36.67 |               467,436.54 | `save`       |
+| Doctrine          |              180.52 |            764.05 |             1,992,804.41 | `flush`      |
+| CakePHP           |              288.97 |            836.86 |             1,546,380.41 | `save`       |
+| Eloquent          |              130.20 |            520.95 |             1,530,852.41 | `save`       |
+| Propel            |              101.60 |            278.77 |               977,372.41 | `save`       |
+| Yii               |               40.72 |            225.01 |             1,180,652.41 | `save`       |
+| PHP ActiveRecord  |               28.12 |            118.91 |               804,852.41 | `save`       |
+| Phalcon           |                9.13 |             32.66 |               720,812.41 | `save`       |
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| Doctrine          |              469.80 |          1,382.61 |             1,844,916.53 | `findOneBy`  |
-| CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
-| Eloquent          |              170.82 |            856.87 |             1,306,540.53 | `firstOrFail`|
-| Propel            |              162.37 |            727.10 |             1,173,076.57 | `findPk`     |
-| Yii               |              115.91 |            644.05 |             1,088,596.54 | `findOne`    |
-| PHP ActiveRecord  |               32.49 |             57.66 |               741,188.50 | `first`      |
-| Phalcon           |               23.40 |             71.13 |               501,468.57 | `findFirst`  |
+| Doctrine          |              202.51 |            798.64 |             2,028,596.41 | `findOneBy`  |
+| CakePHP           |              282.98 |            977.05 |             1,690,308.41 | `find`       |
+| Eloquent          |              127.85 |            559.12 |             1,570,316.41 | `firstOrFail`|
+| Propel            |              154.12 |            725.33 |             1,435,020.41 | `findPk`     |
+| Yii               |               69.66 |            325.98 |             1,284,428.41 | `findOne`    |
+| PHP ActiveRecord  |               28.19 |             57.23 |               742,100.41 | `first`      |
+| Phalcon           |               10.79 |             67.12 |               756,092.41 | `findFirst`  |
 
 ### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -164,41 +164,41 @@ By sharing underlying software stacks, the benchmark results vary only according
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| Doctrine          |               44.34 |            130.13 |             1,761,028.50 | `flush`      |
-| CakePHP           |               24.56 |             91.15 |             1,361,716.51 | `save`       |
-| Eloquent          |               17.99 |             74.44 |             1,190,556.50 | `save`       |
-| Propel            |               12.40 |             35.84 |               795,332.51 | `save`       |
-| Yii               |               11.26 |             49.34 |               933,692.51 | `save`       |
-| PHP ActiveRecord  |                5.23 |             11.99 |               803,940.50 | `save`       |
-| Phalcon           |                3.06 |              3.73 |               468,076.51 | `save`       |
+| Doctrine          |               19.36 |             78.26 |             2,011,436.41 | `flush`      |
+| CakePHP           |               24.61 |             83.72 |             1,546,380.41 | `save`       |
+| Eloquent          |               14.80 |             52.13 |             1,530,852.41 | `save`       |
+| Propel            |                9.05 |             28.16 |               979,996.41 | `save`       |
+| Yii               |                5.46 |             23.94 |             1,195,028.41 | `save`       |
+| PHP ActiveRecord  |                4.98 |             11.95 |               804,852.41 | `save`       |
+| Phalcon           |                2.13 |              3.33 |               721,420.41 | `save`       |
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| Doctrine          |               43.07 |            138.26 |             1,844,948.50 | `findOneBy`  |
-| CakePHP           |               28.24 |            104.34 |             1,497,004.54 | `find`       |
-| Eloquent          |               20.78 |             85.69 |             1,306,572.50 | `firstOrFail`|
-| Propel            |               18.76 |             72.71 |             1,173,108.54 | `findPk`     |
-| Yii               |               13.12 |             67.20 |             1,117,284.51 | `findOne`    |
-| PHP ActiveRecord  |                4.87 |              5.77 |               741,188.50 | `first`      |
-| Phalcon           |                2.47 |              7.11 |               501,500.54 | `findFirst`  |
+| Doctrine          |               18.96 |             83.29 |             2,063,724.41 | `findOneBy`  |
+| CakePHP           |               29.33 |             97.70 |             1,690,308.41 | `find`       |
+| Eloquent          |               13.55 |             55.91 |             1,570,316.41 | `firstOrFail`|
+| Propel            |               15.44 |             73.15 |             1,441,348.41 | `findPk`     |
+| Yii               |                8.03 |             35.40 |             1,313,084.41 | `findOne`    |
+| PHP ActiveRecord  |                2.95 |              5.72 |               742,100.41 | `first`      |
+| Phalcon           |                1.54 |             15.54 |               846,444.41 | `findFirst`  |
 
 ### First run with metadata caching <sup>[↑](#php-orm-benchmark)</sup>
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Adapter |
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Storage |
 |-------------------|--------------------:|------------------:|-------------------------:|------------------|
-| Phalcon           |               20.54 |             64.73 |               750,268.41 | `Files`          |
+| Phalcon           |               18.69 |             60.75 |               750,268.41 | File System      |
 
 ### 10-fold method call with metadata caching <sup>[↑](#php-orm-benchmark)</sup>
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
 
-| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Adapter |
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Storage |
 |-------------------|--------------------:|------------------:|-------------------------:|------------------|
-| Phalcon           |                2.84 |              6.47 |               750,268.41 | `Files`          |
+| Phalcon           |                2.27 |             14.90 |               840,620.41 | File System      |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 
