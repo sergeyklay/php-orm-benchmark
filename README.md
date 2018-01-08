@@ -191,7 +191,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 |-------------------|--------------------:|------------------:|-------------------------:|------------------|
 | Phalcon           |               20.54 |             64.73 |               750,268.41 | `Files`          |
 
-### 10-fold method call with metadata caching<sup>[↑](#php-orm-benchmark)</sup>
+### 10-fold method call with metadata caching <sup>[↑](#php-orm-benchmark)</sup>
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
 
