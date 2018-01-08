@@ -35,6 +35,7 @@ The Docker based project to facilitate PHP ORM benchmarks.
 2. Propel ORM 2.0.0-alpha7
 3. Eloquent 5.5.28
 4. CakePHP ORM 3.5.10
+5. Yii ActiveRecord 2.0.13.1
 
 ## Getting Started <sup>[↑](#php-orm-benchmark)</sup>
 
@@ -82,6 +83,7 @@ Available providers are:
 * `propel`
 * `eloquent`
 * `cake`
+* `yii`
 
 Available tests are:
 
@@ -122,6 +124,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | CakePHP           |              249.55 |            911.23 |             1,361,684.54 | `save`       |
 | Eloquent          |              166.90 |            744.06 |             1,190,524.53 | `save`       |
 | Propel            |              124.78 |            355.55 |               792,676.54 | `save`       |
+| Yii               |              109.67 |            479.07 |               919,284.54 | `save`       |
 | Phalcon           |               13.25 |             36.67 |               467,436.54 | `save`       |
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
@@ -131,6 +134,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | CakePHP           |              283.29 |          1,043.41 |             1,496,972.57 | `find`       |
 | Eloquent          |              184.39 |            856.87 |             1,305,964.56 | `findOrFail` |
 | Propel            |              162.37 |            727.10 |             1,173,076.57 | `findPk`     |
+| Yii               |              115.91 |            644.05 |             1,088,596.54 | `findOne`    |
 | Phalcon           |               23.40 |             71.13 |               501,468.57 | `findFirst`  |
 
 ### 10-fold method call <sup>[↑](#php-orm-benchmark)</sup>
@@ -142,6 +146,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | CakePHP           |               24.56 |             91.15 |             1,361,716.51 | `save`       |
 | Eloquent          |               17.99 |             74.44 |             1,190,556.50 | `save`       |
 | Propel            |               12.40 |             35.84 |               795,332.51 | `save`       |
+| Yii               |               11.26 |             49.34 |               933,692.51 | `save`       |
 | Phalcon           |                3.06 |              3.73 |               468,076.51 | `save`       |
 
 #### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
@@ -151,6 +156,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | CakePHP           |              28.24  |            104.34 |             1,497,004.54 | `find`       |
 | Eloquent          |              22.86  |             85.69 |             1,305,996.53 | `findOrFail` |
 | Propel            |              18.76  |             72.71 |             1,173,108.54 | `findPk`     |
+| Yii               |               13.12 |             67.20 |             1,117,284.51 | `findOne`    |
 | Phalcon           |               2.47  |              7.11 |               501,500.54 | `findFirst`  |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
@@ -170,6 +176,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 * [Phalcon ORM](https://docs.phalconphp.com/en/3.2/db-models)
 * [Propel ORM](http://propelorm.org/documentation/)
 * [CakePHP ORM](https://book.cakephp.org/3.0/en/orm.html)
+* [Yii 2 ActiveRecord](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 

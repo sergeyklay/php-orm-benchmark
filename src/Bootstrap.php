@@ -8,7 +8,8 @@ class Bootstrap
         'phalcon',
         'eloquent',
         'propel',
-        'cake'
+        'cake',
+        'yii',
     ];
 
     public static function init(string $provider = '', string $method = '', int $times = 1)
