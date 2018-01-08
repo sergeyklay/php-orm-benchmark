@@ -12,12 +12,19 @@ class Doctrine extends AbstractProvider
 
     public function setUp()
     {
+        $proxyDir = sys_get_temp_dir() . '/Proxies';
+        $cache = new \Doctrine\Common\Cache\ArrayCache();
         $config = Setup::createAnnotationMetadataConfiguration(
             [DOCROOT . '/src/Models/Doctrine'],
-            false
+            false,
+            $proxyDir,
+            $cache
         );
 
         $this->em = EntityManager::create(require_once DOCROOT . '/config/doctrine.php', $config);
+
+        $metadatas = $this->em->getMetadataFactory()->getAllMetadata();
+        $this->em->getProxyFactory()->generateProxyClasses($metadatas, $proxyDir);
     }
 
     public function create()

@@ -31,10 +31,17 @@ abstract class AbstractProvider implements ProviderInterface
     {
         $this->useMetadataCaching = $caching;
 
-        $this->timeStart   = microtime(true);
-        $this->memoryStart = memory_get_usage();
+        if (!$caching) {
+            $this->timeStart   = microtime(true);
+            $this->memoryStart = memory_get_usage();
+        }
 
         $this->setUp();
+
+        if ($caching) {
+            $this->timeStart   = microtime(true);
+            $this->memoryStart = memory_get_usage();
+        }
     }
 
     final public function getClass(): string
