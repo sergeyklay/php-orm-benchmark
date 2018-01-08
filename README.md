@@ -10,12 +10,16 @@ The Docker based project to facilitate PHP ORM benchmarks.
   * [Running Benchmark](#running-benchmark-)
   * [Results](#results-)
     * [Benchmarking Environment](#benchmarking-environment-)
-    * [First run](#first-run-get-)
+    * [First run](#first-run-)
       * [Insert a record to the Database](#insert-a-record-to-the-database-)
       * [Get first record with relation](#get-first-record-with-relation-)
-    * [10-fold method call](#10-fold-method-)
+    * [10-fold method call](#10-fold-method-call-)
       * [Insert a record to the Database](#insert-a-record-to-the-database--1)
       * [Get first record with relation](#get-first-record-with-relation--1)
+    * [First run with metadata caching](#first-run-with-metadata-caching-)
+      * [Get first record with relation](#get-first-record-with-relation--2)
+    * [10-fold method call with metadata caching](#10-fold-method-call-with-metadata-caching-)
+      * [Get first record with relation](#get-first-record-with-relation--3)
 * [Contributing](#contributing-)
 * [Discussion](#discussion-)
 * [References](#references-)
@@ -100,6 +104,14 @@ To run benchmark multiple times use:
 php run <provider> <test> <times>
 ```
 
+Some ORMs rely (depends) on models metadata caching. Thus, to avoid [controversy](https://github.com/sergeyklay/php-orm-benchmark/issues/4)
+there is an ability to create and run test with metadata caching support. To use models metadata caching (if supports) you can use the
+4th command line argument as follows:
+
+```sh
+php run <provider> <test> <times> 1
+```
+
 To destroy the application use the following command from the host system:
 
 ```sh
@@ -170,6 +182,22 @@ By sharing underlying software stacks, the benchmark results vary only according
 | Yii               |               13.12 |             67.20 |             1,117,284.51 | `findOne`    |
 | PHP ActiveRecord  |                4.87 |              5.77 |               741,188.50 | `first`      |
 | Phalcon           |                2.47 |              7.11 |               501,500.54 | `findFirst`  |
+
+### First run with metadata caching <sup>[↑](#php-orm-benchmark)</sup>
+
+#### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Adapter |
+|-------------------|--------------------:|------------------:|-------------------------:|------------------|
+| Phalcon           |               20.54 |             64.73 |               750,268.41 | `Files`          |
+
+### 10-fold method call with metadata caching<sup>[↑](#php-orm-benchmark)</sup>
+
+#### Get first record with relation <sup>[↑](#php-orm-benchmark)</sup>
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Adapter |
+|-------------------|--------------------:|------------------:|-------------------------:|------------------|
+| Phalcon           |                2.84 |              6.47 |               750,268.41 | `Files`          |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
 

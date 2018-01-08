@@ -6,8 +6,9 @@ use Phalcon\Di;
 use Phalcon\Config;
 use Phalcon\Mvc\Model\Manager;
 use Phalcon\Db\Adapter\Pdo\Mysql;
-use Phalcon\Mvc\Model\Metadata\Memory;
 use OrmBench\Models\Phalcon\Posts;
+use Phalcon\Mvc\Model\MetaData\Files;
+use Phalcon\Mvc\Model\Metadata\Memory;
 
 class Phalcon extends AbstractProvider
 {
@@ -16,10 +17,20 @@ class Phalcon extends AbstractProvider
         $di = new Di();
 
         $di->setShared('modelsManager', Manager::class);
-        $di->setShared('modelsMetadata', Memory::class);
 
         $config = new Config(require_once DOCROOT . '/config/phalcon.php');
-        
+
+        if ($this->isUseMetadataCaching()) {
+            $di->setShared(
+                'modelsMetadata',
+                function () use ($config) {
+                    return new Files($config->offsetGet('metadata')->toArray());
+                }
+            );
+        } else {
+            $di->setShared('modelsMetadata', Memory::class);
+        }
+
         $di->setShared(
             'db',
             function () use ($config) {

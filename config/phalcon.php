@@ -1,5 +1,7 @@
 <?php
 
+defined('DOCROOT') || define('DOCROOT', dirname(dirname(__FILE__)));
+
 return [
     'database' => [
         'host'      => 'mysql',
@@ -10,4 +12,7 @@ return [
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
     ],
+    'metadata' => [
+        'metaDataDir' => DOCROOT . '/storage/phalcon/metadata/',
+    ]
 ];
