@@ -12,6 +12,6 @@ return [
     'username'      => 'enigma',
     'password'      => 'secret',
     'encoding'      => 'utf8',
-    'cacheMetadata' => true,
+    'cacheMetadata' => false,
     'log'           => false,
 ];
