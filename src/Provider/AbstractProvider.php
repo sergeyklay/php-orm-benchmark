@@ -2,6 +2,11 @@
 
 namespace OrmBench\Provider;
 
+/**
+ * OrmBench\Provider\AbstractProvider
+ *
+ * @package OrmBench\Provider
+ */
 abstract class AbstractProvider implements ProviderInterface
 {
     private $timeStart = 0;
@@ -12,28 +17,34 @@ abstract class AbstractProvider implements ProviderInterface
 
     private $measurements = [];
 
-    protected $removePKs = [];
+    private $useMetadataCaching = false;
 
-    public $availableTests = [
+    private $availableTests = [
         'create',
         'read',
     ];
 
-    final public function __construct()
+    // TODO: for tests to delete rows
+    protected $removePKs = [];
+
+    final public function __construct(int $caching = 0)
     {
+        $this->useMetadataCaching = (bool) $caching;
+
         $this->timeStart   = microtime(true);
         $this->memoryStart = memory_get_usage();
 
         $this->setUp();
     }
 
-    final function getClass()
+    final public function getClass(): string
     {
         return substr(static::class, strlen(__NAMESPACE__) + 1);
     }
 
-    public function setUp()
+    final public function isUseMetadataCaching(): bool
     {
+        return $this->useMetadataCaching;
     }
 
     final public function run(string $method, int $times)
@@ -58,7 +69,7 @@ abstract class AbstractProvider implements ProviderInterface
             default:
                 throw new \BadMethodCallException(
                     sprintf(
-                        'Incorrect benchmark run. Usage: "%s %s/run %s <test> <times>". Supported tests: %s',
+                        'Incorrect benchmark run. Usage: "%s %s/run %s <test> <times> <caching>". Supported tests: %s',
                         PHP_BINARY,
                         DOCROOT,
                         strtolower($this->getClass()),

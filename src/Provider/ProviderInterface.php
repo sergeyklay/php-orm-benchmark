@@ -10,4 +10,7 @@ interface ProviderInterface
 
     public function create();
     public function read(int $id);
+
+    public function getClass(): string;
+    public function isUseMetadataCaching(): bool;
 }
