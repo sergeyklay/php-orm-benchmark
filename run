@@ -18,6 +18,7 @@ try {
     fprintf(STDERR, "%s\n", $e->getMessage());
 } catch (\Throwable $e) {
     fprintf(STDERR, "%s: %s on %s:%d\n", get_class($e), $e->getMessage(), $e->getFile(), $e->getLine());
+    fprintf(STDERR, "%s\n", $e->getTraceAsString());
 }
 
 $template =<<<TPL
