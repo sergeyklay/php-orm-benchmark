@@ -22,7 +22,7 @@ class Doctrine extends AbstractProvider
         }
 
         $config = Setup::createAnnotationMetadataConfiguration(
-            [DOCROOT . '/src/Models/Doctrine'],
+            [DOCROOT . '/provider/doctrine/Models'],
             false,
             $proxyDir,
             $cache
