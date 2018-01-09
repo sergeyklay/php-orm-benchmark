@@ -1,8 +1,12 @@
 {
   "require": {
     "php": ">=7.0.0",
-    "propel/propel": "2.0.0-alpha7",
-    "symfony/debug": "3.4.3"
+    "propel/propel": "2.0.0-alpha7"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.25"
+    }
   },
   "autoload": {
     "psr-4": {
