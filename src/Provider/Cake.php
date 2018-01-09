@@ -18,16 +18,11 @@ class Cake extends AbstractProvider
         $config = require_once DOCROOT . '/config/cake.php';
 
         if ($this->isUseMetadataCaching()) {
-            Cache::setConfig('_cake_model_', [
-                'className' => 'Cake\Cache\Engine\FileEngine',
-                'duration' => '+1 year',
-                'path' => DOCROOT . '/storage/cake',
-                'prefix' => 'benchmark_'
-            ]);
-            $config['cacheMetadata'] = true;
+            Cache::setConfig('_cake_model_', $config['metadata']);
+            $config['database']['cacheMetadata'] = true;
         }
 
-        ConnectionManager::setConfig('default', $config);
+        ConnectionManager::setConfig('default', $config['database']);
     }
 
     public function create()
