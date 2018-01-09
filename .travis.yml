@@ -21,6 +21,7 @@ env:
     global:
         - CC="ccache gcc"
         - PHALCON_VERSION=v3.3.0
+        - PATH=/root/.composer/vendor/bin:$PATH
         # TODO
         - HAS_CACHING_METADATA_SUPPORT=0
     matrix:
@@ -51,6 +52,7 @@ before_install:
     - phpenv config-rm xdebug.ini || true
     - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
+    - if [[ $PROVIDER == "yii" ]]; then composer global require --prefer-dist --no-interaction --no-suggest "fxp/composer-asset-plugin:~1.4"; fi;
 
 install:
     - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
