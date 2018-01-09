@@ -30,7 +30,7 @@ abstract class Comments implements ActiveRecordInterface
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\OrmBench\\Models\\Propel\\Map\\CommentsTableMap';
+    const TABLE_MAP = '\\OrmBench\\Propel\\Models\\Map\\CommentsTableMap';
 
 
     /**
@@ -547,7 +547,7 @@ abstract class Comments implements ActiveRecordInterface
             return $startcol + 5; // 5 = CommentsTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\OrmBench\\Models\\Propel\\Comments'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\OrmBench\\Propel\\Models\\Comments'), 0, $e);
         }
     }
 

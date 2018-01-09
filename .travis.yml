@@ -13,6 +13,7 @@ env:
     global:
         - CC="ccache gcc"
         - PHALCON_VERSION=v3.3.0
+        - HAS_CACHING_METADATA_SUPPORT=0
     matrix:
         - PROVIDER=activerecord
         - PROVIDER=cake
@@ -47,6 +48,7 @@ before_install:
 
 install:
     - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
+    - (cd $TRAVIS_BUILD_DIR; composer install --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
     - phpenv config-add $TRAVIS_BUILD_DIR/ci/benchmark.ini
     - ls -al `$(phpenv which php-config) --extension-dir`
     - $(phpenv which php) -v
@@ -61,7 +63,12 @@ before_script:
 
 script:
     - cd $TRAVIS_BUILD_DIR
-    - true
+    - php run $PROVIDER read 1
+    - php run $PROVIDER read 10
+    - php run $PROVIDER create 1
+    - php run $PROVIDER create 10
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 1 1; fi;
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 10 1; fi;
 
 notifications:
     # Stop spam me. I already live on Travis CI and GitHub

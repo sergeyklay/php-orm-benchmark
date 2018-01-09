@@ -33,7 +33,7 @@ abstract class Posts implements ActiveRecordInterface
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\OrmBench\\Models\\Propel\\Map\\PostsTableMap';
+    const TABLE_MAP = '\\OrmBench\\Propel\\Models\\Map\\PostsTableMap';
 
 
     /**
@@ -553,7 +553,7 @@ abstract class Posts implements ActiveRecordInterface
             return $startcol + 5; // 5 = PostsTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\OrmBench\\Models\\Propel\\Posts'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\OrmBench\\Propel\\Models\\Posts'), 0, $e);
         }
     }
 
