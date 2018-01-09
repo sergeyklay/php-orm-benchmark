@@ -8,9 +8,6 @@ use Dms\Core\Model\ISpecification;
 use Dms\Core\Persistence\IRepository;
 use OrmBench\Dms\Domain\Entities\Post;
 
-/**
- * @author Ali Hamza <ali@iddigital.com.au>
- */
 interface IPostRepository extends IRepository
 {
     /**

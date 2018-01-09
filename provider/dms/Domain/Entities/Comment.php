@@ -2,17 +2,13 @@
 
 namespace OrmBench\Dms\Domain\Entities;
 
-use Dms\Common\Structure\DateTime\DateTime;
 use Dms\Common\Structure\Web\Html;
-use Dms\Core\Exception\InvalidOperationException;
-use Dms\Core\Model\EntityCollection;
 use Dms\Core\Model\Object\ClassDefinition;
 use Dms\Core\Model\Object\Entity;
-use Dms\Core\Util\IClock;
 
 class Comment extends Entity
 {
-    const post = 'post';
+    const POST = 'post';
     const BODY = 'body';
     const CREATED_AT = 'createdAt';
     const UPDATED_AT = 'updatedAt';    
@@ -23,18 +19,12 @@ class Comment extends Entity
     public $post;   
 
     /**
-     * @var Html
+     * @var string
      */
     public $body;
 
-    /**
-     * @var DateTime
-     */
     public $createdAt;
 
-    /**
-     * @var DateTime
-     */
     public $updatedAt;
 
     /**
@@ -44,13 +34,13 @@ class Comment extends Entity
      * @param string $body
      * @param IClock $clock
      */
-    public function __construct(Post $post, string $body, IClock $clock)
+    public function __construct(Post $post, string $body)
     {
         parent::__construct();
         $this->post      = $post;
         $this->body      = $body;
-        $this->createdAt = new DateTime($clock->utcNow());
-        $this->updatedAt = new DateTime($clock->utcNow());
+        $this->createdAt = time();
+        $this->updatedAt = time();
     }
 
 
@@ -63,11 +53,11 @@ class Comment extends Entity
     {
         $class->property($this->post)->asObject(Post::class);
 
-        $class->property($this->body)->asObject(Html::class);
+        $class->property($this->body)->asString();
 
-        $class->property($this->createdAt)->asObject(DateTime::class);
-
-        $class->property($this->updatedAt)->asObject(DateTime::class);
+        $class->property($this->createdAt)->asInt();
+        
+        $class->property($this->updatedAt)->asInt();
     }
     
 }

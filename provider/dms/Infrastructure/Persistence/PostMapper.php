@@ -2,16 +2,15 @@
 
 namespace OrmBench\Dms\Infrastructure\Persistence;
 
-use Dms\Common\Structure\DateTime\Persistence\DateMapper;
-use Dms\Common\Structure\DateTime\Persistence\DateTimeMapper;
 use Dms\Common\Structure\Web\Persistence\HtmlMapper;
 use Dms\Core\Persistence\Db\Mapping\Definition\MapperDefinition;
 use Dms\Core\Persistence\Db\Mapping\EntityMapper;
-use OrmBench\Dms\Models\Post;
-use OrmBench\Dms\Models\Comment;
+use OrmBench\Dms\Domain\Entities\Comment;
+use OrmBench\Dms\Domain\Entities\Post;
 
 class PostMapper extends EntityMapper
 {
+
     /**
      * Defines the entity mapper
      *
@@ -39,8 +38,8 @@ class PostMapper extends EntityMapper
 
         $map->embedded(Post::BODY)->withIssetColumn('body')->using(HtmlMapper::withLongText('body'));
 
-        $map->embedded(Post::CREATED_AT)->using(new DateTimeMapper('created_at'));
+        $map->property(Post::CREATED_AT)->to('created_at')->asInt();
 
-        $map->embedded(Post::UPDATED_AT)->using(new DateTimeMapper('updated_at'));
+        $map->property(Post::UPDATED_AT)->to('updated_at')->asInt();
     }
 }
