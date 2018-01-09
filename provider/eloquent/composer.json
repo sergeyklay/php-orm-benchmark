@@ -1,6 +1,8 @@
 {
   "require": {
-    "php": ">=7.0.0"
+    "php": ">=7.0.0",
+    "illuminate/database": "5.5.28",
+    "illuminate/events": "5.5.28"
   },
   "config": {
     "platform": {
@@ -9,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OrmBench\\": "src/"
+      "OrmBench\\Eloquent\\": "./"
     }
   }
 }

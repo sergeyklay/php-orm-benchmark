@@ -2,27 +2,13 @@
 
 namespace OrmBench\Provider;
 
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\ORM\TableRegistry;
-use OrmBench\Cake\Models\PostsTable;
-use OrmBench\Cake\Models\Entities\Posts;
-use Cake\Datasource\ConnectionManager;
+use OrmBench\Dms\Domain\Entities\Post;
 
-class Cake extends AbstractProvider
+class Dms extends AbstractProvider
 {
     public function setUp()
     {
-        Configure::write('App.namespace', 'OrmBench');
-
-        $config = require_once DOCROOT . '/config/cake.php';
-
-        if ($this->isUseMetadataCaching()) {
-            Cache::setConfig('_cake_model_', $config['metadata']);
-            $config['database']['cacheMetadata'] = true;
-        }
-
-        ConnectionManager::setConfig('default', $config['database']);
+        ConnectionManager::setConfig('default', require_once DOCROOT . '/config/cake.php');
     }
 
     public function create()
@@ -31,9 +17,9 @@ class Cake extends AbstractProvider
             'className' => PostsTable::class,
         ]);
 
-        $post = $postsTable->newEntity();
+        $post = new Post('Yet another article: ' . __CLASS__, new Html('This is the body of the article.'));
 
-        $post->title = 'Yet another article: ' . __CLASS__;
+        $post->title = 
         $post->body  = 'This is the body of the article.';
         $post->created_at  = time();
         $post->updated_at  = time();

@@ -2,8 +2,8 @@
 
 namespace OrmBench\Provider;
 
-use OrmBench\Models\Propel\Posts;
-use OrmBench\Models\Propel\PostsQuery;
+use OrmBench\Propel\Models\Posts;
+use OrmBench\Propel\Models\PostsQuery;
 use Propel\Runtime\Propel as PropelRuntime;
 use Propel\Runtime\Connection\ConnectionManagerSingle;
 

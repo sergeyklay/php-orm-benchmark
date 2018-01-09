@@ -4,7 +4,7 @@ namespace OrmBench\Provider;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use OrmBench\Models\Doctrine\Posts;
+use OrmBench\Doctrine\Models\Posts;
 use Doctrine\Common\Cache\ArrayCache;
 
 class Doctrine extends AbstractProvider

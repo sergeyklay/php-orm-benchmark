@@ -1,6 +1,7 @@
 {
   "require": {
-    "php": ">=7.0.0"
+    "php": ">=7.0.0",
+    "php-activerecord/php-activerecord": "1.2.0"
   },
   "config": {
     "platform": {
@@ -9,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OrmBench\\": "src/"
+      "OrmBench\\Activerecord\\": "./"
     }
   }
 }

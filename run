@@ -22,6 +22,8 @@ array_shift($arguments);
 
 $arguments = $arguments + $defaults;
 
+require __DIR__ . '/provider/' . $arguments[0] . '/vendor/autoload.php';
+
 try {
     Bootstrap::init($arguments[0], $arguments[1], $arguments[2], (bool) $arguments[3]);
 } catch (\AssertionError $e) {

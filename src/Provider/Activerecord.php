@@ -3,7 +3,7 @@
 namespace OrmBench\Provider;
 
 use ActiveRecord\Config;    
-use OrmBench\Models\Activerecord\Posts;
+use OrmBench\Activerecord\Models\Posts;
 
 class Activerecord extends AbstractProvider
 {

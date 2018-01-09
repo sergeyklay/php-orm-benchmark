@@ -6,7 +6,7 @@ use Phalcon\Di;
 use Phalcon\Config;
 use Phalcon\Mvc\Model\Manager;
 use Phalcon\Db\Adapter\Pdo\Mysql;
-use OrmBench\Models\Phalcon\Posts;
+use OrmBench\Phalcon\Models\Posts;
 use Phalcon\Mvc\Model\MetaData\Files;
 use Phalcon\Mvc\Model\Metadata\Memory;
 

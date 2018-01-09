@@ -3,15 +3,15 @@
 namespace OrmBench\Provider;
 
 use yii\db\Connection;
-use OrmBench\Models\Yii\Posts;
-use OrmBench\Models\Yii\Comments;
+use OrmBench\Yii\Models\Posts;
+use OrmBench\Yii\Models\Comments;
 
 class Yii extends AbstractProvider
 {
     public function setUp()
     {
         defined('YII_DEBUG') || define('YII_DEBUG', false);
-        require_once DOCROOT . '/vendor/yiisoft/yii2/Yii.php';
+        require_once DOCROOT . '/provider/yii/vendor/yiisoft/yii2/Yii.php';
 
         $db = new Connection(require_once DOCROOT . '/config/yii.php');
 

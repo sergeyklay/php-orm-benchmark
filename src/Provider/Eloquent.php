@@ -5,7 +5,7 @@ namespace OrmBench\Provider;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
-use OrmBench\Models\Eloquent\Posts;
+use OrmBench\Eloquent\Models\Posts;
 
 class Eloquent extends AbstractProvider
 {
