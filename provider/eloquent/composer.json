@@ -4,11 +4,6 @@
     "illuminate/database": "5.5.28",
     "illuminate/events": "5.5.28"
   },
-  "config": {
-    "platform": {
-      "php": "7.0.26"
-    }
-  },
   "autoload": {
     "psr-4": {
       "OrmBench\\Eloquent\\": "./"
