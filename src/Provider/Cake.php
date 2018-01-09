@@ -2,6 +2,7 @@
 
 namespace OrmBench\Provider;
 
+use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\ORM\TableRegistry;
 use OrmBench\Models\Cake\PostsTable;
@@ -13,7 +14,20 @@ class Cake extends AbstractProvider
     public function setUp()
     {
         Configure::write('App.namespace', 'OrmBench');
-        ConnectionManager::setConfig('default', require_once DOCROOT . '/config/cake.php');
+
+        $config = require_once DOCROOT . '/config/cake.php';
+
+        if ($this->isUseMetadataCaching()) {
+            Cache::setConfig('_cake_model_', [
+                'className' => 'Cake\Cache\Engine\FileEngine',
+                'duration' => '+1 year',
+                'path' => DOCROOT . '/storage/cake',
+                'prefix' => 'benchmark_'
+            ]);
+            $config['cacheMetadata'] = true;
+        }
+
+        ConnectionManager::setConfig('default', $config);
     }
 
     public function create()
