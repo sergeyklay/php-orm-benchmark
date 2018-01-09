@@ -41,14 +41,23 @@ cache:
 
 before_install:
     - ulimit -c unlimited -S || true
+    - phpenv config-rm xdebug.ini || true
     - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
 
 install:
+    - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
     - phpenv config-add $TRAVIS_BUILD_DIR/ci/benchmark.ini
     - ls -al `$(phpenv which php-config) --extension-dir`
     - $(phpenv which php) -v
     - $(phpenv which php) -m
+    - echo 'SHOW VARIABLES LIKE "%version%"' | mysql -u root
+
+before_script:
+    - echo 'CREATE DATABASE orm_benchmark CHARSET=utf8 COLLATE=utf8_unicode_ci' | mysql -u root
+    - echo "CREATE USER 'enigma'@'%' IDENTIFIED BY 'secret'" | mysql -u root
+    - echo "GRANT ALL PRIVILEGES ON orm_benchmark.* TO 'enigma'@'%' WITH GRANT OPTION" | mysql -u root
+    - cat schema/orm-benchmark.sql | mysql -u root orm_benchmark
 
 script:
     - cd $TRAVIS_BUILD_DIR
