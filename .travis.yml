@@ -11,6 +11,7 @@ git:
 
 env:
     global:
+        - CC="ccache gcc"
         - PHALCON_VERSION=v3.3.0
     matrix:
         - PROVIDER=activerecord
@@ -39,9 +40,8 @@ cache:
         - $HOME/.local/lib
 
 before_install:
-    - if [ $PROVIDER == "phalcon" ]; then
-        bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh
-      fi
+    - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
+    - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
 
 script:
     - true
