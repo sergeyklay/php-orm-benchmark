@@ -93,6 +93,7 @@ Available providers are:
 * `yii`
 * `doctrine`
 * `activerecord`
+* `dms`
 
 Available tests are:
 
@@ -224,6 +225,7 @@ If you would like to discuss an idea or need help or have other feedback you can
 * [Yii 2 ActiveRecord](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html)
 * [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 * [PHP ActiveRecord](http://www.phpactiverecord.org/projects/main/wiki)
+* [DMS](http://dms-docs.readthedocs.io/en/latest/)
 
 ## License <sup>[↑](#php-orm-benchmark)</sup>
 
