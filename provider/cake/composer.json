@@ -4,12 +4,6 @@
     "cakephp/orm": "3.5.10",
     "cakephp/cache": "^3.5"
   },
-  "provide": {
-    "bower-asset/jquery": "*",
-    "bower-asset/yii2-pjax": "*",
-    "bower-asset/punycode": "*",
-    "bower-asset/inputmask": "*"
-  },
   "config": {
     "platform": {
       "php": "7.0.26"
