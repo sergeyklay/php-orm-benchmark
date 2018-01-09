@@ -9,5 +9,39 @@ php:
 git:
   depth: 1
 
+env:
+    global:
+        - PHALCON_VERSION=v3.3.0
+    matrix:
+        - PROVIDER=activerecord
+        - PROVIDER=cake
+        - PROVIDER=doctrine
+        - PROVIDER=eloquent
+        - PROVIDER=phalcon
+        - PROVIDER=propel
+        - PROVIDER=yii
+
+matrix:
+    fast_finish: true
+
+cache:
+    # See: https://github.com/travis-ci/travis-ci/issues/8714
+    edge: true
+    apt: true
+    ccache: true
+    timeout: 604800
+    directories:
+        - .temp
+        - $HOME/.ccache
+        - $HOME/.composer/cache
+        - $HOME/pear
+        - $HOME/.cache/src
+        - $HOME/.local/lib
+
+before_install:
+    - if [ $PROVIDER == "phalcon" ]; then
+        bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh
+      fi
+
 script:
     - true
