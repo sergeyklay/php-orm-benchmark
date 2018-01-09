@@ -191,6 +191,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Storage |
 |-------------------|--------------------:|------------------:|-------------------------:|------------------|
 | Doctrine          |              145.61 |            264.44 |             2,033,836.41 | File System      |
+| Cake              |              273.66 |          1,075.52 |             1,793,772.41 | File System      |
 | Phalcon           |               18.69 |             60.75 |               750,268.41 | File System      |
 
 ### 10-fold method call with metadata caching <sup>[↑](#php-orm-benchmark)</sup>
@@ -200,6 +201,7 @@ By sharing underlying software stacks, the benchmark results vary only according
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | MetaData Storage |
 |-------------------|--------------------:|------------------:|-------------------------:|------------------|
 | Doctrine          |               15.65 |             29.87 |             2,068,964.41 | File System      |
+| Cake              |               30.18 |            107.55 |             1,793,772.41 | File System      |
 | Phalcon           |                2.27 |             14.90 |               840,620.41 | File System      |
 
 ## Contributing <sup>[↑](#php-orm-benchmark)</sup>
