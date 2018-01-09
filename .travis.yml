@@ -40,8 +40,22 @@ cache:
         - $HOME/.local/lib
 
 before_install:
+    - ulimit -c unlimited -S || true
     - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
 
+install:
+    - phpenv config-add $TRAVIS_BUILD_DIR/ci/benchmark.ini
+    - ls -al `$(phpenv which php-config) --extension-dir`
+    - $(phpenv which php) -v
+    - $(phpenv which php) -m
+
 script:
+    - cd $TRAVIS_BUILD_DIR
     - true
+
+notifications:
+    # Stop spam me. I already live on Travis CI and GitHub
+    email:
+        on_success: never
+        on_failure: never
