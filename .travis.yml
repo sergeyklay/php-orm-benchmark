@@ -53,8 +53,8 @@ before_install:
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
 
 install:
-    - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
-    - (cd $TRAVIS_BUILD_DIR; composer install --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
+    - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
+    - (cd $TRAVIS_BUILD_DIR; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
     - phpenv config-add $TRAVIS_BUILD_DIR/ci/benchmark.ini
     - ls -al `$(phpenv which php-config) --extension-dir`
     - $(phpenv which php) -v
