@@ -2,11 +2,6 @@
   "require": {
     "php": ">=7.0.0"
   },
-  "config": {
-    "platform": {
-      "php": "7.0.26"
-    }
-  },
   "autoload": {
     "psr-4": {
       "OrmBench\\": "src/"
