@@ -31,6 +31,7 @@ class Doctrine extends AbstractProvider
         $this->em = EntityManager::create(require_once DOCROOT . '/config/doctrine.php', $config);
 
         if ($this->isUseMetadataCaching()) {
+            $reporter->metaDataStorage = 'File System';
             $metadatas = $this->em->getMetadataFactory()->getAllMetadata();
             $this->em->getProxyFactory()->generateProxyClasses($metadatas, $proxyDir);
         }
@@ -51,8 +52,6 @@ class Doctrine extends AbstractProvider
         assert($post instanceof Posts);
         assert(is_numeric($post->getId()));
         assert($post->getId() > 0);
-
-        $this->removePKs[] = $post->getId();
     }
 
     public function read(int $id)

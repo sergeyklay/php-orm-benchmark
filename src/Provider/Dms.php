@@ -54,8 +54,6 @@ class Dms extends AbstractProvider
 
         assert(is_numeric($post->getId()));
         assert($post->getId() > 0);
-
-        $this->removePKs[] = $post->getId();
     }
 
     public function read(int $id)

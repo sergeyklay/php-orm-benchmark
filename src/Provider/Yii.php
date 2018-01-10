@@ -31,8 +31,6 @@ class Yii extends AbstractProvider
         assert($post->save() === true);
         assert(is_numeric($post->id));
         assert($post->id > 0);
-
-        $this->removePKs[] = $post->id;
     }
 
     public function read(int $id)

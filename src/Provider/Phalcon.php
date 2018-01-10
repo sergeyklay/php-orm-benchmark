@@ -21,6 +21,7 @@ class Phalcon extends AbstractProvider
         $config = new Config(require_once DOCROOT . '/config/phalcon.php');
 
         if ($this->isUseMetadataCaching()) {
+            $reporter->metaDataStorage = 'File System';
             $di->setShared(
                 'modelsMetadata',
                 function () use ($config) {
@@ -53,8 +54,6 @@ class Phalcon extends AbstractProvider
         assert($post->save() === true);
         assert(is_numeric($post->id));
         assert($post->id > 0);
-
-        $this->removePKs[] = $post->id;
     }
 
     public function read(int $id)

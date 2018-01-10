@@ -37,20 +37,3 @@ try {
     fprintf(STDERR, "%s\n", $e->getTraceAsString());
     exit(1);
 }
-
-$template =<<<TPL
-
-Total elapsed time: % 18s ms.
-Total memory usage: % 18s KiB.
-Total memory peak:  % 18s KiB.
-
-
-TPL;
-
-fprintf(
-    STDOUT,
-    $template,
-    number_format((microtime(true) - APP_START_TIME) * 1000, 2),
-    number_format(memory_get_usage() - APP_START_MEMORY / 1024, 2),
-    number_format(memory_get_peak_usage(true) / 1024, 2)
-);

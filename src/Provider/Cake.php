@@ -18,6 +18,7 @@ class Cake extends AbstractProvider
         $config = require_once DOCROOT . '/config/cake.php';
 
         if ($this->isUseMetadataCaching()) {
+            $reporter->metaDataStorage = 'File System';
             Cache::setConfig('_cake_model_', $config['metadata']);
             $config['database']['cacheMetadata'] = true;
         }
@@ -41,8 +42,6 @@ class Cake extends AbstractProvider
         assert($postsTable->save($post) instanceof Posts);
         assert(is_numeric($post->id));
         assert($post->id > 0);
-
-        $this->removePKs[] = $post->id;
     }
 
     public function read(int $id)

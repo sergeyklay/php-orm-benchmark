@@ -15,8 +15,6 @@ abstract class AbstractProvider implements ProviderInterface
     private $memoryStart = 0;
     private $memoryStop  = 0;
 
-    private $measurements = [];
-
     private $useMetadataCaching = false;
 
     private $availableTests = [
@@ -24,13 +22,20 @@ abstract class AbstractProvider implements ProviderInterface
         'read',
     ];
 
-    // TODO: for tests to delete rows
-    protected $removePKs = [];
+    protected $reporter;
 
     final public function __construct(bool $caching = false)
     {
+        $this->reporter = new ReportCollector();
+        $this->reporter->provider = $this->getClass();
+
         $this->useMetadataCaching = $caching;
         $this->setUp();
+    }
+
+    final public function getReporter(): ReportCollector
+    {
+        return $this->reporter;
     }
 
     final public function getClass(): string
@@ -84,24 +89,20 @@ abstract class AbstractProvider implements ProviderInterface
                 );
         }
 
-        $this->measurements[] = [
-            'method'     => $method,
-            'times'      => $times,
-            'timeStop'   => $this->timeStop,
-            'memoryStop' => $this->memoryStop,
-            'memoryPeak' => memory_get_peak_usage(),
-        ];
+        $this->reporter->method      = $method;
+        $this->reporter->callTimes   = $times;
+        $this->reporter->elapsedTime = number_format($this->timeStop * 1000, 2);
+        $this->reporter->memoryUsage = number_format($this->memoryStop / 1024, 2);
+        $this->reporter->memoryPeak  = number_format(memory_get_peak_usage() / 1024, 2);
 
         $this->printMeasurements();
     }
 
     private function printMeasurements()
     {
-        foreach ($this->measurements as $test) {
-            fprintf(STDOUT, "Method: % 30s\nCall times: % 26d\n", $test['method'], $test['times']);
-            fprintf(STDOUT, "Elapsed time: % 24s ms.\n", number_format($test['timeStop'] * 1000, 2));
-            fprintf(STDOUT, "Memory usage: % 24s KiB.\n", number_format($test['memoryStop'] / 1024, 2));
-            fprintf(STDOUT, "Memory peak:  % 24s KiB.\n", number_format($test['memoryPeak'] / 1024, 2));
-        }
+        fprintf(STDOUT, "Method: % 30s\nCall times: % 26d\n", $this->reporter->method, $this->reporter->callTimes);
+        fprintf(STDOUT, "Elapsed time: % 24s ms.\n", $this->reporter->elapsedTime);
+        fprintf(STDOUT, "Memory usage: % 24s KiB.\n", $this->reporter->memoryUsage);
+        fprintf(STDOUT, "Memory peak:  % 24s KiB.\n", $this->reporter->memoryPeak);
     }
 }

@@ -32,8 +32,6 @@ class Eloquent extends AbstractProvider
         assert($post->save());
         assert(is_numeric($post->id));
         assert($post->id > 0);
-
-        $this->removePKs[] = $post->id;
     }
 
     public function read(int $id)
