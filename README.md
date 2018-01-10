@@ -1,6 +1,6 @@
 # PHP ORM Benchmark [![Build Status](https://travis-ci.org/sergeyklay/php-orm-benchmark.svg?branch=master)](https://travis-ci.org/sergeyklay/php-orm-benchmark)
 
-The benchmark to compare different ORM solutions for PHP.
+The benchmark to compare performance of PHP ORM solutions.
 
 Initially this project used Docker to facilitate PHP ORM benchmarks. But after [repeated](https://github.com/sergeyklay/php-orm-benchmark/pull/12) [comments](https://github.com/sergeyklay/php-orm-benchmark/issues/7) I decided to transfer the benchmarks to [Travis CI](https://travis-ci.org/sergeyklay/php-orm-benchmark).
 
