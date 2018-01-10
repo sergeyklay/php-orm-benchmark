@@ -22,16 +22,14 @@ env:
         - CC="ccache gcc"
         - PHALCON_VERSION=v3.3.0
         - PATH=/root/.composer/vendor/bin:$PATH
-        # TODO
-        - HAS_CACHING_METADATA_SUPPORT=0
     matrix:
-        - PROVIDER=activerecord
-        - PROVIDER=cake
-        - PROVIDER=doctrine
-        - PROVIDER=eloquent
-        - PROVIDER=phalcon
-        - PROVIDER=propel
-        - PROVIDER=yii
+        - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=cake         HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=doctrine     HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=eloquent     HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=phalcon      HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=propel       HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=yii          HAS_CACHING_METADATA_SUPPORT=0
 
 cache:
     # See: https://github.com/travis-ci/travis-ci/issues/8714
@@ -40,7 +38,6 @@ cache:
     ccache: true
     timeout: 604800
     directories:
-        - .temp
         - $HOME/.ccache
         - $HOME/.composer/cache
         - $HOME/pear
