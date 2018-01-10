@@ -2,6 +2,8 @@
 
 namespace OrmBench\Provider;
 
+use OrmBench\ReportCollector;
+
 /**
  * OrmBench\Provider\AbstractProvider
  *
