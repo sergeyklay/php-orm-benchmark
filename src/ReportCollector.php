@@ -53,8 +53,6 @@ class ReportCollector
             $contents
         );
 
-        echo $contents . PHP_EOL;
-
         $filename = sprintf('%s/%s-%s%s.csv', $reportDst, $this->method, $this->callTimes, $this->metaDataStorage ? $this->metaDataStorage : '');
         if (!file_put_contents($filename, $contents)) {
             throw new \RuntimeException("Unable to store benchmark results to the file: '{$filename}'");
