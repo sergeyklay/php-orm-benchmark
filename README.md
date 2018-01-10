@@ -17,7 +17,7 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 * Phalcon 3.3.0
 * Propel ORM 2.0.0-alpha7
 * Yii ActiveRecord 2.0.13.1
-* DMS
+* DMS 0.8.2
 
 ## Benchmarking Environment
 
