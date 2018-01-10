@@ -1,0 +1,18 @@
+{
+  "require": {
+    "php": ">=7.0.0",
+    "dms-org/core": "^0.8.2",
+    "illuminate/container": "^5.5",
+    "dms-org/common.structure": "^0.8.1"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.26"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "OrmBench\\Dms\\": "./"
+    }
+  }
+}

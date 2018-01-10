@@ -25,6 +25,7 @@ env:
     matrix:
         - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0
         - PROVIDER=cake         HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=dms          HAS_CACHING_METADATA_SUPPORT=0
         - PROVIDER=doctrine     HAS_CACHING_METADATA_SUPPORT=1
         - PROVIDER=eloquent     HAS_CACHING_METADATA_SUPPORT=0
         - PROVIDER=phalcon      HAS_CACHING_METADATA_SUPPORT=1

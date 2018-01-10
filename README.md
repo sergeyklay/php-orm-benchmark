@@ -17,6 +17,7 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 * Phalcon 3.3.0
 * Propel ORM 2.0.0-alpha7
 * Yii ActiveRecord 2.0.13.1
+* DMS 0.8.2
 
 ## Benchmarking Environment
 
@@ -45,6 +46,7 @@ Contributions for new ORMs are more than welcome! If anyone feels that there is 
 * [Yii 2 ActiveRecord](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html)
 * [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 * [PHP ActiveRecord](http://www.phpactiverecord.org/projects/main/wiki)
+* [DMS](http://dms-docs.readthedocs.io/en/latest/)
 
 ## License
 
