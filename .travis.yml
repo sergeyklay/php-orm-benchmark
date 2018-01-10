@@ -13,6 +13,11 @@ matrix:
     fast_finish: true
     allow_failures:
         - php: nightly
+    exclude:
+         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0
+           php: 7.2
+         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0
+           php: nightly
 
 git:
   depth: 1
@@ -20,7 +25,6 @@ git:
 env:
     global:
         - CC="ccache gcc"
-        - PHALCON_VERSION=v3.3.0
         - PATH=/root/.composer/vendor/bin:$PATH
     matrix:
         - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0
@@ -28,7 +32,7 @@ env:
         - PROVIDER=dms          HAS_CACHING_METADATA_SUPPORT=0
         - PROVIDER=doctrine     HAS_CACHING_METADATA_SUPPORT=1
         - PROVIDER=eloquent     HAS_CACHING_METADATA_SUPPORT=0
-        - PROVIDER=phalcon      HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=phalcon      HAS_CACHING_METADATA_SUPPORT=1 PHALCON_VERSION=v3.3.0
         - PROVIDER=propel       HAS_CACHING_METADATA_SUPPORT=0
         - PROVIDER=yii          HAS_CACHING_METADATA_SUPPORT=0
 
