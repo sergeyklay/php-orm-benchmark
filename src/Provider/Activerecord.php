@@ -12,7 +12,7 @@ class Activerecord extends AbstractProvider
         $config = require_once DOCROOT . '/config/activerecord.php';
 
         Config::initialize(function (Config $configurator) use ($config) {
-            $configurator->set_model_directory(DOCROOT . '/src/Models/Activerecord');
+            $configurator->set_model_directory(DOCROOT . '/provider/activerecord/Models');
             $configurator->set_connections([
                 'development' => $config['dsn'],
             ]);

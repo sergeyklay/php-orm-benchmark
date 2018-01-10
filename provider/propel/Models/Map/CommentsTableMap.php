@@ -37,7 +37,7 @@ class CommentsTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\OrmBench\\Models\\Propel\\Comments';
+    const OM_CLASS = '\\OrmBench\\Propel\\Models\\Comments';
 
     /**
      * A class that can be returned by this tableMap
@@ -130,7 +130,7 @@ class CommentsTableMap extends TableMap
         $this->setName('comments');
         $this->setPhpName('Comments');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\OrmBench\\Models\\Propel\\Comments');
+        $this->setClassName('\\OrmBench\\Propel\\Models\\Comments');
         $this->setPackage('OrmBench.Models.Propel');
         $this->setUseIdGenerator(true);
         // columns
@@ -146,7 +146,7 @@ class CommentsTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Posts', '\\OrmBench\\Models\\Propel\\Posts', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Posts', '\\OrmBench\\Propel\\Models\\Posts', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':post_id',

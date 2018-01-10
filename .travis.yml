@@ -1,0 +1,82 @@
+sudo: false
+dist: trusty
+
+language: php
+
+php:
+    - 7.0
+    - 7.1
+    - 7.2
+    - nightly
+
+matrix:
+    fast_finish: true
+    allow_failures:
+        - php: nightly
+
+git:
+  depth: 1
+
+env:
+    global:
+        - CC="ccache gcc"
+        - PHALCON_VERSION=v3.3.0
+        - PATH=/root/.composer/vendor/bin:$PATH
+    matrix:
+        - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=cake         HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=doctrine     HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=eloquent     HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=phalcon      HAS_CACHING_METADATA_SUPPORT=1
+        - PROVIDER=propel       HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=yii          HAS_CACHING_METADATA_SUPPORT=0
+
+cache:
+    # See: https://github.com/travis-ci/travis-ci/issues/8714
+    edge: true
+    apt: true
+    ccache: true
+    timeout: 604800
+    directories:
+        - $HOME/.ccache
+        - $HOME/.composer/cache
+        - $HOME/pear
+        - $HOME/.cache/src
+        - $HOME/.local/lib
+
+before_install:
+    - ulimit -c unlimited -S || true
+    - phpenv config-rm xdebug.ini || true
+    - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
+    - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
+    - if [[ $PROVIDER == "yii" ]]; then composer global require --prefer-dist --no-interaction --no-suggest "fxp/composer-asset-plugin:~1.4"; fi;
+
+install:
+    - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
+    - (cd $TRAVIS_BUILD_DIR; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
+    - phpenv config-add $TRAVIS_BUILD_DIR/ci/benchmark.ini
+    - ls -al `$(phpenv which php-config) --extension-dir`
+    - $(phpenv which php) -v
+    - $(phpenv which php) -m
+    - echo 'SHOW VARIABLES LIKE "%version%"' | mysql -u root
+
+before_script:
+    - echo 'CREATE DATABASE orm_benchmark CHARSET=utf8 COLLATE=utf8_unicode_ci' | mysql -u root
+    - echo "CREATE USER 'enigma'@'%' IDENTIFIED BY 'secret'" | mysql -u root
+    - echo "GRANT ALL PRIVILEGES ON orm_benchmark.* TO 'enigma'@'%' WITH GRANT OPTION" | mysql -u root
+    - cat schema/orm-benchmark.sql | mysql -u root orm_benchmark
+
+script:
+    - cd $TRAVIS_BUILD_DIR
+    - php run $PROVIDER read 1
+    - php run $PROVIDER read 10
+    - php run $PROVIDER create 1
+    - php run $PROVIDER create 10
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 1 1; fi;
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 10 1; fi;
+
+notifications:
+    # Stop spam me. I already live on Travis CI and GitHub
+    email:
+        on_success: never
+        on_failure: never

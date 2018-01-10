@@ -10,7 +10,7 @@ return [
     'database' => [
         'className'     => Connection::class,
         'driver'        => Mysql::class,
-        'host'          => 'mysql',
+        'host'          => '127.0.0.1',
         'port'          => 3306,
         'database'      => 'orm_benchmark',
         'username'      => 'enigma',

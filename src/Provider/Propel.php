@@ -11,14 +11,14 @@ class Propel extends AbstractProvider
 {
     public function setUp()
     {
-        require_once DOCROOT . '/config/propel.php';
+        $config = require_once DOCROOT . '/config/propel.php';
 
         $serviceContainer = PropelRuntime::getServiceContainer();
         $serviceContainer->checkVersion('2.0.0-dev');
         $serviceContainer->setAdapterClass('default', 'mysql');
 
         $manager = new ConnectionManagerSingle();
-        $manager->setConfiguration(require DOCROOT . '/config/propel.php');
+        $manager->setConfiguration($config);
         $manager->setName('default');
 
         $serviceContainer->setConnectionManager('default', $manager);

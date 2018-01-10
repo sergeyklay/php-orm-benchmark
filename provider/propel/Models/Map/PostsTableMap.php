@@ -37,7 +37,7 @@ class PostsTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\OrmBench\\Models\\Propel\\Posts';
+    const OM_CLASS = '\\OrmBench\\Propel\\Models\\Posts';
 
     /**
      * A class that can be returned by this tableMap
@@ -130,7 +130,7 @@ class PostsTableMap extends TableMap
         $this->setName('posts');
         $this->setPhpName('Posts');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\OrmBench\\Models\\Propel\\Posts');
+        $this->setClassName('\\OrmBench\\Propel\\Models\\Posts');
         $this->setPackage('OrmBench.Models.Propel');
         $this->setUseIdGenerator(true);
         // columns
@@ -146,14 +146,18 @@ class PostsTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Comments', '\\OrmBench\\Models\\Propel\\Comments', RelationMap::ONE_TO_MANY, array (
-  0 =>
-  array (
-    0 => ':post_id',
-    1 => ':id',
-  ),
-), 'CASCADE', null, 'Commentss', false);
-    } // buildRelations()
+        $this->addRelation(
+            'Comments',
+            '\\OrmBench\\Propel\\Models\\Comments',
+            RelationMap::ONE_TO_MANY,
+            [[':post_id', ':id']],
+            'CASCADE',
+            null,
+            'Commentss',
+            false
+        );
+    }
+
     /**
      * Method to invalidate the instance pool of all tables related to posts     * by a foreign key with ON DELETE CASCADE
      */

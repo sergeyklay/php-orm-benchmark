@@ -9,11 +9,6 @@
     "bower-asset/punycode": "*",
     "bower-asset/inputmask": "*"
   },
-  "config": {
-    "platform": {
-      "php": "7.0.26"
-    }
-  },
   "autoload": {
     "psr-4": {
       "OrmBench\\Yii\\": "./"

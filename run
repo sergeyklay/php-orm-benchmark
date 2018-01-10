@@ -28,11 +28,14 @@ try {
     Bootstrap::init($arguments[0], $arguments[1], $arguments[2], (bool) $arguments[3]);
 } catch (\AssertionError $e) {
     fprintf(STDERR, "Assertion error for: %s on %s:%d\n", $e->getMessage(), $e->getFile(), $e->getLine());
+    exit(1);
 } catch(\BadMethodCallException $e) {
     fprintf(STDERR, "%s\n", $e->getMessage());
+    exit(1);
 } catch (\Throwable $e) {
     fprintf(STDERR, "%s: %s on %s:%d\n", get_class($e), $e->getMessage(), $e->getFile(), $e->getLine());
     fprintf(STDERR, "%s\n", $e->getTraceAsString());
+    exit(1);
 }
 
 $template =<<<TPL

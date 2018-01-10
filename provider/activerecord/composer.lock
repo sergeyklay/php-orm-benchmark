@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc0c63fff9901b61c56649b6eb53e851",
+    "content-hash": "78ae5a60c05f8a4fc31a51233ea5b08f",
     "packages": [
         {
             "name": "php-activerecord/php-activerecord",
@@ -56,8 +56,5 @@
     "platform": {
         "php": ">=7.0.0"
     },
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "7.0.26"
-    }
+    "platform-dev": []
 }

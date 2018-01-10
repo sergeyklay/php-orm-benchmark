@@ -2,7 +2,7 @@
 
 return [
     'driver'    => 'pdo_mysql',
-    'host'      => 'mysql',
+    'host'      => '127.0.0.1',
     'dbname'    => 'orm_benchmark',
     'user'      => 'enigma',
     'password'  => 'secret',

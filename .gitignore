@@ -5,7 +5,5 @@
 #
 # https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
 
-wip/
-vendor/
-
-composer.phar
+/provider/*/vendor/
+/vendor/

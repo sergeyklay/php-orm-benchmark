@@ -4,7 +4,7 @@ defined('DOCROOT') || define('DOCROOT', dirname(dirname(__FILE__)));
 
 return [
     'database' => [
-        'host'      => 'mysql',
+        'host'      => '127.0.0.1',
         'port'      => 3306,
         'username'  => 'enigma',
         'password'  => 'secret',
