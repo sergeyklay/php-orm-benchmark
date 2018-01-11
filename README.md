@@ -14,7 +14,7 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 * Doctrine ORM 2.5.14
 * Eloquent 5.5.28
 * PHP ActiveRecord 1.2.0
-* Phalcon 3.3.0
+* Phalcon 3.3.1
 * Propel ORM 2.0.0-alpha7
 * Yii ActiveRecord 2.0.13.1
 * DMS 0.8.2
