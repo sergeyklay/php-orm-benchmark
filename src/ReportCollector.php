@@ -18,10 +18,10 @@ class ReportCollector
 
     public function printMeasurements()
     {
-        fprintf(STDOUT, "Method: % 30s\nCall times: % 26d\n", $this->reporter->method, $this->reporter->callTimes);
-        fprintf(STDOUT, "Elapsed time: % 24s ms.\n", $this->reporter->elapsedTime);
-        fprintf(STDOUT, "Memory usage: % 24s KiB.\n", $this->reporter->memoryUsage);
-        fprintf(STDOUT, "Memory peak:  % 24s KiB.\n", $this->reporter->memoryPeak);
+        fprintf(STDOUT, "Method: % 30s\nCall times: % 26d\n", $this->method, $this->callTimes);
+        fprintf(STDOUT, "Elapsed time: % 24s ms.\n", $this->elapsedTime);
+        fprintf(STDOUT, "Memory usage: % 24s KiB.\n", $this->memoryUsage);
+        fprintf(STDOUT, "Memory peak:  % 24s KiB.\n", $this->memoryPeak);
 
         $template =<<<TPL
 
@@ -35,9 +35,9 @@ TPL;
         fprintf(
             STDOUT,
             $template,
-            $reporter->totalElapsedTime,
-            $reporter->totalMemoryUsage,
-            $reporter->totalMemoryPeak
+            $this->totalElapsedTime,
+            $this->totalMemoryUsage,
+            $this->totalMemoryPeak
         );
     }
 }
