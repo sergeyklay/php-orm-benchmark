@@ -31,7 +31,7 @@ class Doctrine extends AbstractProvider
         $this->em = EntityManager::create(require_once DOCROOT . '/config/doctrine.php', $config);
 
         if ($this->isUseMetadataCaching()) {
-            $reporter->metaDataStorage = 'File System';
+            $this->reporter->metaDataStorage = 'File System';
             $metadatas = $this->em->getMetadataFactory()->getAllMetadata();
             $this->em->getProxyFactory()->generateProxyClasses($metadatas, $proxyDir);
         }

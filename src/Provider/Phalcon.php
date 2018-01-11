@@ -21,7 +21,7 @@ class Phalcon extends AbstractProvider
         $config = new Config(require_once DOCROOT . '/config/phalcon.php');
 
         if ($this->isUseMetadataCaching()) {
-            $reporter->metaDataStorage = 'File System';
+            $this->reporter->metaDataStorage = 'File System';
             $di->setShared(
                 'modelsMetadata',
                 function () use ($config) {

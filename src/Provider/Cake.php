@@ -18,7 +18,7 @@ class Cake extends AbstractProvider
         $config = require_once DOCROOT . '/config/cake.php';
 
         if ($this->isUseMetadataCaching()) {
-            $reporter->metaDataStorage = 'File System';
+            $this->reporter->metaDataStorage = 'File System';
             Cache::setConfig('_cake_model_', $config['metadata']);
             $config['database']['cacheMetadata'] = true;
         }
