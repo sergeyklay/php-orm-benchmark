@@ -30,8 +30,34 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 
 * Insert a record to the Database
 * Get first record with relation
+* Get first record with relation and metadata caching
 * Insert a record to the Database (10-fold method call)
 * Get first record with relation (10-fold method call)
+* Get first record with relation and metadata caching (10-fold method call)
+
+## Results
+
+Get first record with relation (10-fold method call). Build [#43](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/327560984), PHP 7.0.
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |                3.80 |             83.99 |             2,179,069.05 | `findOneBy`  |
+| CakePHP           |                5.24 |             98.06 |             1,610,141.06 | `find`       |
+| Eloquent          |                3.07 |             55.27 |             1,526,429.05 | `firstOrFail`|
+| Propel            |                3.14 |             66.83 |             1,458,277.06 | `findPk`     |
+| Yii               |                2.49 |             35.24 |             1,298,077.06 | `findOne`    |
+| PHP ActiveRecord  |                1.40 |              6.18 |               775,381.05 | `first`      |
+| Phalcon           |                1.23 |             16.10 |               621,804.99 | `findFirst`  |
+
+Get first record with relation (10-fold method call) with metadata caching. Build [#43](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/327560984), PHP 7.0.
+
+| ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
+|-------------------|--------------------:|------------------:|-------------------------:|--------------|
+| Doctrine          |                2.10 |             30.31 |             2,184,461.02 | `findOneBy`  |
+| CakePHP           |                5.11 |            108.07 |             1,565,349.03 | `find`       |
+| Phalcon           |                1.16 |             16.25 |               624,028.96 | `findFirst`  |
+
+If you are interested in other resutls, see [Travis CI build results](https://travis-ci.org/sergeyklay/php-orm-benchmark).
 
 ## Contributing
 
