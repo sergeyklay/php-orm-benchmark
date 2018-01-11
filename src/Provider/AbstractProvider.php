@@ -96,15 +96,5 @@ abstract class AbstractProvider implements ProviderInterface
         $this->reporter->elapsedTime = number_format($this->timeStop * 1000, 2);
         $this->reporter->memoryUsage = number_format($this->memoryStop / 1024, 2);
         $this->reporter->memoryPeak  = number_format(memory_get_peak_usage() / 1024, 2);
-
-        $this->printMeasurements();
-    }
-
-    private function printMeasurements()
-    {
-        fprintf(STDOUT, "Method: % 30s\nCall times: % 26d\n", $this->reporter->method, $this->reporter->callTimes);
-        fprintf(STDOUT, "Elapsed time: % 24s ms.\n", $this->reporter->elapsedTime);
-        fprintf(STDOUT, "Memory usage: % 24s KiB.\n", $this->reporter->memoryUsage);
-        fprintf(STDOUT, "Memory peak:  % 24s KiB.\n", $this->reporter->memoryPeak);
     }
 }

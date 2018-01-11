@@ -1,8 +1,0 @@
-"ORM","Elapsed time (ms)","Used memory (KiB)","Total memory usage (KiB)"
-"Doctrine","N/A","N/A","N/A"
-"Cake","N/A","N/A","N/A"
-"Eloquent","N/A","N/A","N/A"
-"Propel","N/A","N/A","N/A"
-"Yii","N/A","N/A","N/A"
-"Activerecord","N/A","N/A","N/A"
-"Phalcon","N/A","N/A","N/A"

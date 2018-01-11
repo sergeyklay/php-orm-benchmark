@@ -80,16 +80,6 @@ script:
     - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 1 1; fi;
     - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 10 1; fi;
 
-after_success:
-    - git config push.default simple
-    - git config --global user.email "builds@travis-ci.com"
-    - git config --global user.name "Travis CI"
-    - git checkout $TRAVIS_BRANCH
-    - git add -A results
-    - 'git commit -m "chore($PROVIDER): $TRAVIS_COMMIT: generate new report [ci skip]" results'
-    - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_REPO_SLUG" == "sergeyklay/php-orm-benchmark" ]]; then git fetch && git rebase --autostash FETCH_HEAD && git push --quiet https://$GH_TOKEN@github.com/sergeyklay/php-orm-benchmark > /dev/null 2>&1; fi
-    - if [[ "$TRAVIS_PULL_REQUEST" == "true" ]]; then git log -1 -p; fi
-
 notifications:
     # Stop spam me. I already live on Travis CI and GitHub
     email:

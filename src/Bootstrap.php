@@ -35,27 +35,10 @@ class Bootstrap
         $reporter->totalMemoryUsage = number_format(memory_get_usage() - APP_START_MEMORY / 1024, 2);
         $reporter->totalMemoryPeak = number_format(memory_get_peak_usage(true) / 1024, 2);
 
-        $template =<<<TPL
-
-Total elapsed time: % 18s ms.
-Total memory usage: % 18s KiB.
-Total memory peak:  % 18s KiB.
-
-
-TPL;
-
-        fprintf(
-            STDOUT,
-            $template,
-            $reporter->totalElapsedTime,
-            $reporter->totalMemoryUsage,
-            $reporter->totalMemoryPeak
-        );
-
         if ($buildId = getenv('TRAVIS_BUILD_ID') && getenv('CI')) {
             $reporter->build = $buildId;
         }
 
-        $reporter->putResultsToReportFile();
+        $reporter->printMeasurements();
     }
 }
