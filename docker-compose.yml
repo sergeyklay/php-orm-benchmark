@@ -1,0 +1,35 @@
+version: '3.0'
+
+services:
+  benchmark:
+    build: ./docker/php/image
+    image: php-orm-benchmark:1.0.0
+    depends_on:
+      - mysql
+    working_dir: '/app'
+    volumes:
+      - ./docker/config:/app/config:ro
+      - ./provider:/app/provider:ro
+      - ./src:/app/src:ro
+      - ./storage:/app/storage:rw
+      - ./vendor:/app/vendor:ro
+      - ./run:/app/run:ro
+      - ./ci/benchmark.ini:/usr/local/etc/php/conf.d/999-php-orm-benchmark.ini:ro
+    command: '/bin/bash'
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    volumes:
+      - ./schema/orm-benchmark.sql:/docker-entrypoint-initdb.d/orm-benchmark.sql:ro
+      - mysql:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_DATABASE: orm_benchmark
+      MYSQL_USER: enigma
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_HOST: "%"
+
+volumes:
+  mysql:
+    driver: local
