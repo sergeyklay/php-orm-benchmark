@@ -50,19 +50,33 @@ abstract class AbstractProvider implements ProviderInterface
         return $this->useMetadataCaching;
     }
 
+    private function ensureNotMoreThanRecordsInDB(int $times)
+    {
+        if ($times > 1000) {
+            throw new \BadMethodCallException(
+                "This test was not designed to loop over items more than 1000 times. " .
+                "To achieve that please first amend the SQL dump. Then you have to update this check."
+            );
+        }
+    }
+
     final public function run(string $method, int $times)
     {
         $this->timeStart   = microtime(true);
         $this->memoryStart = memory_get_usage();
 
         switch ($method) {
+            case 'readBatch':
+                $this->ensureNotMoreThanRecordsInDB($times);
+
+                $ids = range(1, $times);
+                $this->readBatch($ids);
+
+                $this->timeStop   = (microtime(true) - $this->timeStart) / $times;
+                $this->memoryStop = (memory_get_usage() - $this->memoryStart) / $times;
+                break;
             case 'read':
-                if ($times > 1000) {
-                    throw new \BadMethodCallException(
-                        "This test does not designed to loop over items greater than 1000 times. " .
-                        "To achieve that please first amend the SQL dump. Then you have to update this check."
-                    );
-                }
+                $this->ensureNotMoreThanRecordsInDB($times);
 
                 for ($i = 0; $i < $times; ++$i) {
                     $this->read($i + 1);

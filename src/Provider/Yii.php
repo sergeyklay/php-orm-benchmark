@@ -41,4 +41,15 @@ class Yii extends AbstractProvider
         $comments = $post->comments;
         assert($comments[0]->body === 'It is a comment.');
     }
+
+    public function readBatch(array $ids)
+    {
+        $posts = Posts::find()->where(['id' => $ids])->with('comments')->all();
+
+        foreach ($posts as $post) {
+            assert($post instanceof Posts);
+            $comments = $post->comments;
+            assert($comments[0]->body === 'It is a comment.');
+        }
+    }
 }

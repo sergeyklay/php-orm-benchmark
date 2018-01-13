@@ -17,14 +17,14 @@ env:
         - CC="ccache gcc"
         - PATH=/root/.composer/vendor/bin:$PATH
     matrix:
-        - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0
-        - PROVIDER=cake HAS_CACHING_METADATA_SUPPORT=1
-        - PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0
-        - PROVIDER=doctrine HAS_CACHING_METADATA_SUPPORT=1
-        - PROVIDER=eloquent HAS_CACHING_METADATA_SUPPORT=0
-        - PROVIDER=phalcon HAS_CACHING_METADATA_SUPPORT=1 PHALCON_VERSION=v3.3.1
-        - PROVIDER=propel HAS_CACHING_METADATA_SUPPORT=0
-        - PROVIDER=yii HAS_CACHING_METADATA_SUPPORT=0
+        - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=cake HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=doctrine HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=eloquent HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=phalcon HAS_CACHING_METADATA_SUPPORT=1 PHALCON_VERSION=v3.3.0 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=propel HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=yii HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=1
 
 matrix:
     fast_finish: true
@@ -80,6 +80,10 @@ script:
     - php run $PROVIDER create 10
     - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 1 1; fi;
     - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 ]]; then php run $PROVIDER read 10 1; fi;
+    - if [[ $HAS_BATCHING_SUPPORT == 1 ]]; then php run $PROVIDER readBatch 20; fi;
+    - if [[ $HAS_BATCHING_SUPPORT == 1 ]]; then php run $PROVIDER readBatch 200; fi;
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 && $HAS_BATCHING_SUPPORT == 1 ]]; then php run $PROVIDER readBatch 20 1; fi;
+    - if [[ $HAS_CACHING_METADATA_SUPPORT == 1 && $HAS_BATCHING_SUPPORT == 1 ]]; then php run $PROVIDER readBatch 200 1; fi;
 
 notifications:
     # Stop spam me. I already live on Travis CI and GitHub
