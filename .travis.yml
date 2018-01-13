@@ -24,7 +24,7 @@ env:
         - PROVIDER=eloquent HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
         - PROVIDER=phalcon HAS_CACHING_METADATA_SUPPORT=1 PHALCON_VERSION=v3.3.0 HAS_BATCHING_SUPPORT=0
         - PROVIDER=propel HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
-        - PROVIDER=yii HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=1
+        - PROVIDER=yii HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=1
 
 matrix:
     fast_finish: true
@@ -55,7 +55,6 @@ before_install:
     - export PHP_MAJOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 1)"
     - export PHP_MINOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 2)"
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
-    - if [[ $PROVIDER == "yii" ]]; then composer global require --prefer-dist --no-interaction --no-suggest "fxp/composer-asset-plugin:~1.4"; fi;
 
 install:
     - (cd $TRAVIS_BUILD_DIR/provider/$PROVIDER; composer install --no-dev --no-interaction --prefer-dist --no-suggest --optimize-autoloader)
