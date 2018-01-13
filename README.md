@@ -41,25 +41,27 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 
 ## Results
 
-Get first record with relation (10-fold method call). Build [#43](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/327563062), PHP 7.0.
+Get first record with relation (10-fold method call). Build [#57](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/328442668), PHP 7.0.25.
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| CakePHP           |                5.24 |             98.06 |             1,610,141.06 | `find`       |
-| Doctrine          |                3.80 |             83.99 |             2,179,069.05 | `findOneBy`  |
-| Eloquent          |                3.07 |             55.27 |             1,526,429.05 | `firstOrFail`|
-| Propel            |                3.14 |             66.83 |             1,458,277.06 | `findPk`     |
-| Yii               |                2.49 |             35.24 |             1,298,077.06 | `findOne`    |
-| PHP ActiveRecord  |                1.40 |              6.18 |               775,381.05 | `first`      |
-| Phalcon           |                1.23 |             16.10 |               621,804.99 | `findFirst`  |
+| CakePHP           |                7.68 |             98.06 |             1,610,421.10 | `find`       |
+| DMS               |                7.42 |            199.06 |             2,503,541.10 | `get`        |
+| Doctrine          |                4.29 |             83.99 |             2,179,349.09 | `findOneBy`  |
+| Eloquent          |                3.24 |             55.27 |             1,526,709.09 | `firstOrFail`|
+| Propel            |                3.57 |             66.83 |             1,458,557.10 | `findPk`     |
+| Yii               |                3.20 |             43.90 |             1,394,253.10 | `findOne`    |
+| Phalcon           |                1.07 |             16.10 |               622,013.10 | `findFirst`  |
+| PHP ActiveRecord  |                0.99 |              6.18 |               775,661.09 | `first`      |
 
-Get first record with relation (10-fold method call) with metadata caching. Build [#43](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/327563062), PHP 7.0.
+Get first record with relation (10-fold method call) with metadata caching. Build [#57](https://travis-ci.org/sergeyklay/php-orm-benchmark/builds/328442668), PHP 7.0.25.
 
 | ORM               |   Elapsed time (ms) | Used memory (KiB) | Total memory usage (KiB) | Method       |
 |-------------------|--------------------:|------------------:|-------------------------:|--------------|
-| CakePHP           |                5.11 |            108.07 |             1,565,349.03 | `find`       |
-| Doctrine          |                2.10 |             30.31 |             2,184,461.02 | `findOneBy`  |
-| Phalcon           |                1.16 |             16.25 |               624,028.96 | `findFirst`  |
+| CakePHP           |                5.82 |             84.56 |             1,383,373.10 | `find`       |
+| Yii               |                2.55 |             41.84 |             1,373,901.07 | `findOne`    |
+| Doctrine          |                2.21 |             30.31 |             1,844,677.05 | `findOneBy`  |
+| Phalcon           |                1.04 |             16.25 |               611,445.07 | `findFirst`  |
 
 Get a batch of 200 records with relation. # TBD
 
