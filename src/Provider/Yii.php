@@ -3,6 +3,7 @@
 namespace OrmBench\Provider;
 
 use yii\db\Connection;
+use yii\caching\ArrayCache;
 use OrmBench\Yii\Models\Posts;
 use OrmBench\Yii\Models\Comments;
 
@@ -14,6 +15,11 @@ class Yii extends AbstractProvider
         require_once DOCROOT . '/provider/yii/vendor/yiisoft/yii2/Yii.php';
 
         $db = new Connection(require_once DOCROOT . '/config/yii.php');
+
+        if ($this->isUseMetadataCaching()) {
+            $db->enableSchemaCache = true;
+            $db->schemaCache = new ArrayCache();
+        }
 
         Posts::$db = $db;
         Comments::$db = $db;
