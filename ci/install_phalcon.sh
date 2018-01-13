@@ -6,7 +6,7 @@ if [ "${CI}" != "true" ]; then
     exit 1
 fi
 
-PHALCON_VERSION=${PHALCON_VERSION:-master}
+PHALCON_VERSION=v3.3.1
 PHP_MAJOR=`$(phpenv which php-config) --version | cut -d '.' -f 1,2`
 
 LOCAL_SRC_DIR=${HOME}/src/phalcon/${PHALCON_VERSION}
