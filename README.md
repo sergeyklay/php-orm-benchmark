@@ -34,6 +34,10 @@ NOTE: Some ORMs rely (depends) on models metadata caching. Thus, to avoid [contr
 * Insert a record to the Database (10-fold method call)
 * Get first record with relation (10-fold method call)
 * Get first record with relation and metadata caching (10-fold method call)
+* Get a batch of first 20 records with relation
+* Get a batch of first 20 records with relation and metadata caching
+* Get a batch of first 200 records with relation
+* Get a batch of first 200 records with relation and metadata caching
 
 ## Results
 
@@ -56,6 +60,10 @@ Get first record with relation (10-fold method call) with metadata caching. Buil
 | CakePHP           |                5.11 |            108.07 |             1,565,349.03 | `find`       |
 | Doctrine          |                2.10 |             30.31 |             2,184,461.02 | `findOneBy`  |
 | Phalcon           |                1.16 |             16.25 |               624,028.96 | `findFirst`  |
+
+Get a batch of 200 records with relation. # TBD
+
+Get a batch of 200 records with relation and with metadata caching. # TBD
 
 If you are interested in other resutls, see [Travis CI build results](https://travis-ci.org/sergeyklay/php-orm-benchmark).
 
