@@ -7,3 +7,5 @@
 
 /provider/*/vendor/
 /vendor/
+
+composer.phar
