@@ -15,7 +15,6 @@ git:
 env:
     global:
         - CC="ccache gcc"
-        - PATH=/root/.composer/vendor/bin:$PATH
     matrix:
         - PROVIDER=activerecord HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
         - PROVIDER=cake HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=0
@@ -31,9 +30,9 @@ matrix:
     allow_failures:
         - php: nightly
     exclude:
-        - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0
+        - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
           php: 7.2
-        - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0
+        - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
           php: nightly
 
 cache:
@@ -52,8 +51,6 @@ before_install:
     - ulimit -c unlimited -S || true
     - phpenv config-rm xdebug.ini || true
     - if [[ ! -z "${GH_TOKEN}" ]]; then composer config github-oauth.github.com ${GH_TOKEN}; echo "Configured Github token"; fi;
-    - export PHP_MAJOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 1)"
-    - export PHP_MINOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 2)"
     - if [[ $PROVIDER == "phalcon" ]]; then bash $TRAVIS_BUILD_DIR/ci/install_phalcon.sh; fi;
 
 install:
