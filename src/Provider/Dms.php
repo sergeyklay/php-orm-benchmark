@@ -2,7 +2,10 @@
 
 namespace OrmBench\Provider;
 
+use Doctrine\DBAL\Configuration;
+use Doctrine\DBAL\DriverManager;
 use Dms\Core\Ioc\IIocContainer;
+use Dms\Core\Persistence\Db\Doctrine\DoctrineConnection;
 use Dms\Core\Persistence\Db\Connection\IConnection;
 use Dms\Core\Persistence\Db\Mapping\IOrm;
 use Dms\Core\Util\DateTimeClock;
@@ -20,19 +23,12 @@ class Dms extends AbstractProvider
         $container = new LaravelIocContainer(new Container());
 
         $container->bindCallback(IIocContainer::SCOPE_SINGLETON, IConnection::class, function () {
-            $config = new \Doctrine\DBAL\Configuration();
+            $connection = DriverManager::getConnection(
+                require_once DOCROOT . '/config/dms.php',
+                new Configuration()
+            );
 
-            $conn = require_once DOCROOT . '/config/dms.php';
-
-            $connectionParams = [
-                'url' => $conn['dsn'],
-                'driverOptions' => [
-                    \PDO::MYSQL_ATTR_FOUND_ROWS => true
-                ],
-            ];
-            $connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-
-            return new \Dms\Core\Persistence\Db\Doctrine\DoctrineConnection($connection);
+            return new DoctrineConnection($connection);
         });
 
         $container->bind(IIocContainer::SCOPE_SINGLETON, IOrm::class, AppOrm::class);
