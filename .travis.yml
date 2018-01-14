@@ -60,6 +60,7 @@ install:
     - ls -al `$(phpenv which php-config) --extension-dir`
     - $(phpenv which php) -v
     - $(phpenv which php) -m
+    - (cd $(phpenv root); git remote show origin )
     - echo 'SHOW VARIABLES LIKE "%version%"' | mysql -u root
 
 before_script:
