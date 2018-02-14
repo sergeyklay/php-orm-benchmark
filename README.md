@@ -16,6 +16,7 @@ We have noticed, that running benchmarks on Travis CI is a convenient, but not a
 * Propel ORM 2.0.0-alpha7
 * Yii ActiveRecord 2.0.13.1
 * DMS 0.8.2
+* Nextras ORM 3.0.0-rc2
 
 ## What we test
 
@@ -106,6 +107,7 @@ Available providers are:
 * `doctrine`
 * `activerecord`
 * `dms`
+* `nextrasorm`
 
 Available tests are:
 
@@ -179,6 +181,7 @@ Contributions for new ORMs are more than welcome! If anyone feels that there is 
 * [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html)
 * [PHP ActiveRecord](http://www.phpactiverecord.org/projects/main/wiki)
 * [DMS](http://dms-docs.readthedocs.io/en/latest/)
+* [Nextras ORM](https://nextras.org/orm/)
 
 ## License
 

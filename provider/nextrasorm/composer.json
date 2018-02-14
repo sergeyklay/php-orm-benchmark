@@ -1,0 +1,11 @@
+{
+  "require": {
+    "php": ">=7.0.0",
+    "nextras/orm": "3.0.0-rc2"
+  },
+  "autoload": {
+    "psr-4": {
+      "OrmBench\\NextrasOrm\\": "./"
+    }
+  }
+}
