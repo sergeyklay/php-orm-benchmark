@@ -24,7 +24,7 @@ env:
         - PROVIDER=phalcon HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=0
         - PROVIDER=propel HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
         - PROVIDER=yii HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=1
-        - PROVIDER=nextrasorm HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=0
+        - PROVIDER=nextrasorm HAS_CACHING_METADATA_SUPPORT=1 HAS_BATCHING_SUPPORT=1
 
 matrix:
     fast_finish: true
@@ -65,6 +65,7 @@ install:
     - echo 'SHOW VARIABLES LIKE "%version%"' | mysql -u root
 
 before_script:
+    - mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql
     - echo 'CREATE DATABASE orm_benchmark CHARSET=utf8 COLLATE=utf8_unicode_ci' | mysql -u root
     - echo "CREATE USER 'enigma'@'%' IDENTIFIED BY 'secret'" | mysql -u root
     - echo "GRANT ALL PRIVILEGES ON orm_benchmark.* TO 'enigma'@'%' WITH GRANT OPTION" | mysql -u root
