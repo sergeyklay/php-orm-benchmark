@@ -68,4 +68,16 @@ class Nextrasorm extends AbstractProvider
         $comments = $post->comments;
         assert($comments->get()->fetch()->body === 'It is a comment.');
     }
+
+    public function readBatch(array $ids)
+    {
+        $posts = $this->model->getRepositoryForEntity(Post::class)
+            ->findBy(['id' => $ids]);
+
+        foreach ($posts as $post) {
+            assert($post instanceof Post);
+            $comments = $post->comments;
+            assert($comments->get()->fetch()->body === 'It is a comment.');
+        }
+    }
 }
