@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">=7.0.0",
-    "ext-phalcon": "3.4.3"
+    "ext-phalcon": "3.4.4"
   },
   "autoload": {
     "psr-4": {
