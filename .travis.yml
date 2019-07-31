@@ -35,7 +35,9 @@ matrix:
         - php: '7.4snapshot'
     exclude:
         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
-          php: '7.4snapshot'
+          php: '7.2'
+        - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
+          php: '7.3'
         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
           php: '7.4snapshot'
 
