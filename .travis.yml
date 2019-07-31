@@ -1,10 +1,13 @@
 language: php
 
+dist: bionic
+
 php:
-    - 7.0
-    - 7.1
-    - 7.2
-    - nightly
+    - '7.0'
+    - '7.1'
+    - '7.2'
+    - '7.3'
+    - '7.4snapshot'
 
 git:
   depth: 1
@@ -26,12 +29,12 @@ env:
 matrix:
     fast_finish: true
     allow_failures:
-        - php: nightly
+        - php: '7.4snapshot'
     exclude:
         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
-          php: 7.2
+          php: '7.4snapshot'
         - env: PROVIDER=dms HAS_CACHING_METADATA_SUPPORT=0 HAS_BATCHING_SUPPORT=0
-          php: nightly
+          php: '7.4snapshot'
 
 cache:
     # See: https://github.com/travis-ci/travis-ci/issues/8714
